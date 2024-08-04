@@ -17,7 +17,11 @@ export default class Project {
         this.list.push(new task(name,date,priority,discription));
     }
 
-     getTasks() {
-        return this.list;
-     }
+    getTasks() {
+    return this.list;
+    }
+
+    getName() {
+        return this.name;
+    }
 }

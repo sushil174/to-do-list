@@ -6,6 +6,41 @@
     <title>To do List</title>
 </head>
 <body>
+    <div class="container">
+        <div class="sidebar">
+            <div id="content"></div>
+            <div id="project-dialog">
+                <!-- <form> -->
+                    <input type="text" id="project-title" placeholder="e.g. School Work" autofocus required>
+                    <div>
+                        <button id= "cancel" value="cancel" >Cancel</button>
+                        <button id="confirm" value="default">Confirm</button>
+                    </div>
+                <!-- </form> -->
+            </div>
+
+            <button class="add-project">Add project</button>
+        </div>
+
+        <div class="tasks">
+            <div id="tasklist"></div>
+            <div id="task-dialog">
+                <div class="tasksInput">
+                    <input autofocus type="text" id="task-name" placeholder="Title" required>
+                    <input type="date" id="task-date" placeholder="Date">
+                    <input type="text" id="task-priority" placeholder="Priority">
+                    <input type="text" id="task-discription" placeholder="Discription">
     
+                    <div>
+                        <button id="task-cancel">Cancel</button>
+                        <button id="task-confirm">Confirm</button>
+                    </div>
+                </div>
+            </div>
+            <button id="add-task">Add task</button>
+        </div>
+
+    </div>
+
 </body>
 </html>

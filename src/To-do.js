@@ -1,6 +1,6 @@
 import Project from "./project"
 
-export default class Todo {
+class Todo {
     constructor() {
         this.projects = []
     }
@@ -17,3 +17,7 @@ export default class Todo {
         return this.projects;
     }
 }
+
+const todo = new Todo()
+
+export default todo

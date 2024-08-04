@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+}
+.container {
+    height: 100vh;
+    background-color: aqua;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+.sidebar {
+    background-color: rgb(213, 182, 241);
+}
+
+.tasks {
+    background-color: rgb(218, 246, 237);
+}
+
+#project-dialog{
+    visibility: collapse;
+}
+
+#task-dialog{
+    visibility: collapse;
+}

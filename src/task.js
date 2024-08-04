@@ -14,4 +14,24 @@ export default class Task {
         this.priority = priority;
         this.discription = discription;
     }
+
+    getTitle() {
+        return this.name;
+    }
+
+    getDate() {
+        return this.date;
+    }
+
+    getPriority() {
+        return this.priority;
+    }
+
+    getComplete() {
+        return this.complete;
+    }
+
+    getDiscription() {
+        return this.discription;
+    }
 }
