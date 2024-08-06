@@ -38,11 +38,13 @@ let taskDom = (project) => {
             let task = list[i]
             let div = document.createElement('div');
             let span = document.createElement('span');
-            div.append(span)
             let edit = document.createElement('button');
+            let del = document.createElement('button');
+            del.textContent = "delete";
             edit.textContent = "edit";
             edit.dataset.index = i;
             span.textContent = task.getTitle() + task.getDate() + task.getPriority() + task.getComplete();
+
             edit.addEventListener('click', e => {
                 index = i;
                 dialogEdit.showModal()
@@ -50,6 +52,14 @@ let taskDom = (project) => {
                 priorityEdit.value = task.getPriority();
                 discriptionEdit.value= task.getDiscription();
             })
+
+            del.addEventListener('click', e => {
+                project.removeTask(e.target.index)
+                display()
+            })
+            
+            div.append(span)
+            div.append(del)
             div.append(edit);
             tasklist.append(div);
         }
