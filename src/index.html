@@ -6,6 +6,82 @@
     <title>To do List</title>
 </head>
 <body>
+
+    <dialog id="task-dialog">
+
+        <form>
+            <ul class="inputs">
+                <li>
+                    <label for="title">Title</label>
+                    <input type="text" id="task-title" name="task-title" required>
+                </li>
+
+                <li>
+                    <label for="Date">Date</label>
+                    <input type="date" id="task-date" name="task-date" required>
+                </li>
+
+                <li>
+                    <label for="priority">Priority</label>
+                    <input type="text" id="task-priority" name="task-priority" required>
+                </li>
+
+                <li>
+                    <label for="info">Discription</label>
+                    <input type="text" id="task-info" name="task-info" required>
+                </li>
+                
+            </ul>
+
+            <div>
+
+                <button id= "task-cancel" value="cancel" formmethod="dialog">Cancel</button>
+                <button id="task-confirm" value="default">Confirm</button>
+
+            </div>
+
+        </form>
+
+    </dialog>
+
+
+    <dialog id="edit-task-dialog">
+
+        <form>
+            <ul class="inputs">
+                <li>
+                    <label for="edit-task-title">Title</label>
+                    <input type="text" id="edit-task-title" name="task-title" required>
+                </li>
+
+                <li>
+                    <label for="edit-task-date">Date</label>
+                    <input type="date" id="edit-task-date" name="task-date" required>
+                </li>
+
+                <li>
+                    <label for="edit-task-priority">Priority</label>
+                    <input type="text" id="edit-task-priority" name="task-priority" required>
+                </li>
+
+                <li>
+                    <label for="edit-task-info">Discription</label>
+                    <input type="text" id="edit-task-info" name="task-info" required>
+                </li>
+                
+            </ul>
+
+            <div>
+
+                <button id= "edit-task-cancel" value="cancel" formmethod="dialog">Cancel</button>
+                <button id="edit-task-confirm" value="default">Confirm</button>
+
+            </div>
+
+        </form>
+
+    </dialog>
+
     <div class="container">
         <div class="sidebar">
             <div id="content"></div>
@@ -24,7 +100,7 @@
 
         <div class="tasks">
             <div id="tasklist"></div>
-            <div id="task-dialog">
+            <!-- <div id="task-dialog">
                 <div class="tasksInput">
                     <input autofocus type="text" id="task-name" placeholder="Title" required>
                     <input type="date" id="task-date" placeholder="Date">
@@ -36,7 +112,7 @@
                         <button id="task-confirm">Confirm</button>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <button id="add-task">Add task</button>
         </div>
 

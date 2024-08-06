@@ -5,7 +5,7 @@ export default class Project {
         this.list = []
     }
 
-    edit(name){
+    setName(name){
         this.name = name;
     }
 

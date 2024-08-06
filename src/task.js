@@ -8,7 +8,7 @@ export default class Task {
         this.complete = false
     }
 
-    edit(name,date,priority,discription) {
+    setTask(name,date,priority,discription) {
         this.name = name;
         this.date = date;
         this.priority = priority;

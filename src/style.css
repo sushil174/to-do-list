@@ -17,9 +17,9 @@ body {
 }
 
 #project-dialog{
-    visibility: collapse;
+    display: none;
 }
 
-#task-dialog{
-    visibility: collapse;
-}
+/* #task-dialog{
+    display: none;
+} */
