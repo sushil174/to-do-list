@@ -1,5 +1,6 @@
 import todo from "./To-do";
 
+
 let taskDom = (project) => {
 
     const tasklist = document.querySelector('#tasklist');
@@ -21,16 +22,9 @@ let taskDom = (project) => {
     const priorityEdit = document.querySelector('#edit-task-priority')
     const discriptionEdit = document.querySelector('#edit-task-info')
     
-    function dialogVisible() {
-        dialog.showModal();
-    }
-
-    function dialogHidden() {
-        dialog.close()
-    }
-
     let index = null;
     let list = []
+    
     function display() {
         tasklist.textContent = '';
         list = project.getTasks();
@@ -43,25 +37,25 @@ let taskDom = (project) => {
             del.textContent = "delete";
             edit.textContent = "edit";
             edit.dataset.index = i;
+            del.dataset.index = i;
             span.textContent = task.getTitle() + task.getDate() + task.getPriority() + task.getComplete();
-
             edit.addEventListener('click', e => {
-                index = i;
-                dialogEdit.showModal()
-                titleEdit.value = task.getTitle();
-                priorityEdit.value = task.getPriority();
-                discriptionEdit.value= task.getDiscription();
+                    index = i;
+                    dialogEdit.showModal()
+                    titleEdit.value = task.getTitle();
+                    priorityEdit.value = task.getPriority();
+                    discriptionEdit.value= task.getDiscription();
             })
-
+        
             del.addEventListener('click', e => {
-                project.removeTask(e.target.index)
+                project.removeTask(e.target.dataset.index)
                 display()
             })
-            
-            div.append(span)
-            div.append(del)
+                
+            div.append(span);
+            div.append(del);
             div.append(edit);
-            tasklist.append(div);
+            tasklist.append(div);     
         }
 
     }
@@ -95,12 +89,12 @@ let taskDom = (project) => {
         confirm.replaceWith(newConfirm)
 
         newButton.addEventListener('click',(e)=> {
-            dialogVisible()
+            dialog.showModal();
         });
       
         newCancel.addEventListener('click',(e)=>{
             e.preventDefault();
-            dialogHidden();
+            dialog.close()
         })
     
         newConfirm.addEventListener('click', e=>{
@@ -110,7 +104,7 @@ let taskDom = (project) => {
             title.value =""
             priority.value =""
             discription.value=""
-            dialogHidden()
+            dialog.close();
         })
 
     }

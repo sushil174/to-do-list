@@ -12,23 +12,28 @@
         <form>
             <ul class="inputs">
                 <li>
-                    <label for="title">Title</label>
+                    <label for="task-title">Title</label>
                     <input type="text" id="task-title" name="task-title" required>
                 </li>
 
                 <li>
-                    <label for="Date">Date</label>
+                    <label for="task-date">Date</label>
                     <input type="date" id="task-date" name="task-date" required>
                 </li>
 
                 <li>
-                    <label for="priority">Priority</label>
-                    <input type="text" id="task-priority" name="task-priority" required>
+                    <label for="task-priority">Priority</label>
+
+                    <select name="priority" id="task-priority">
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select> 
                 </li>
 
                 <li>
-                    <label for="info">Discription</label>
-                    <input type="text" id="task-info" name="task-info" required>
+                    <label for="task-info">Discription</label>
+                    <textarea id="task-info" name="task-info" rows="4" cols="50"></textarea>
                 </li>
                 
             </ul>
@@ -61,12 +66,16 @@
 
                 <li>
                     <label for="edit-task-priority">Priority</label>
-                    <input type="text" id="edit-task-priority" name="task-priority" required>
+                    <select name="priority" id="edit-task-priority">
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select> 
                 </li>
 
                 <li>
                     <label for="edit-task-info">Discription</label>
-                    <input type="text" id="edit-task-info" name="task-info" required>
+                    <textarea id="edit-task-info" name="task-info" rows="4" cols="50"> </textarea>
                 </li>
                 
             </ul>
@@ -84,6 +93,13 @@
 
     <div class="container">
         <div class="sidebar">
+
+            <div class="side-button">
+                <button id="home">Home</button>
+                <button id="due">Past Dues</button>
+                <button id="today">Today</button>
+            </div>
+
             <div id="content"></div>
             <div id="project-dialog">
                 <!-- <form> -->
