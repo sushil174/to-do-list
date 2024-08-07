@@ -1,6 +1,8 @@
 import todo from "./To-do";
 import card from "./card";
 let homeDom = () => {
+    const addTask = document.querySelector('.task-add')
+    addTask.style.display = 'none'
     const taskList = document.querySelector('#tasklist');
     const projects = todo.getProjects();
     let tasks = []

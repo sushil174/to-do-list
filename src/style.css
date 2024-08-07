@@ -23,3 +23,7 @@ body {
 /* #task-dialog{
     display: none;
 } */
+
+#add-task {
+    display: block;
+}

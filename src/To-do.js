@@ -6,7 +6,9 @@ class Todo {
     }
 
     addProject(name) {
-        this.projects.push(new Project(name));
+        const newProject = new Project(name)
+        this.projects.push(newProject);
+        return newProject
     }
 
     removeProject(index) {

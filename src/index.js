@@ -4,9 +4,14 @@ import todayDom from './todayDom.js';
 import './style.css';
 
 const home = document.querySelector('#home');
-const due = document.querySelector('#due');
 const today = document.querySelector('#today');
 
+function hideAddTask() {
+    const addTask = document.querySelector('.task-add')
+    addTask.style.display = 'none'
+}
+
+homeDom()
 home.addEventListener('click', ()=> {
     homeDom();
 })

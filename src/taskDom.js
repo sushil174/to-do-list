@@ -12,22 +12,26 @@ let taskDom = (project) => {
     const date = document.querySelector('#task-date')
     const priority = document.querySelector('#task-priority')
     const discription = document.querySelector('#task-info')
+    const addTask = document.querySelector('.task-add')
 
-    
-    let index = null;
+    addTask.style.display = 'block';
     let list = []
-    
     function display() {
+        let title = document.createElement('div');
+        title.textContent = project.getName();
         tasklist.textContent = '';
+        tasklist.append(title)
         list = project.getTasks();
         for(let i=0;i<list.length;i++){
             let task = list[i]
             card.create(project,task,i,display)
         }
     }
+
+    display()
+
     card.buttonListners(display)
     function removeListeners() {
-
         let newButton = button.cloneNode(true);
         let newCancel = cancel.cloneNode(true);
         let newConfirm = confirm.cloneNode(true);
@@ -58,7 +62,6 @@ let taskDom = (project) => {
     }
     
     removeListeners();
-    display()
  
 };
 

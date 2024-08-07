@@ -1,5 +1,6 @@
 import todo from "./To-do"
 import taskDom from "./taskDom";
+import homeDom from "./homeDom";
 
 let projectDom = function () {
     
@@ -40,7 +41,7 @@ let projectDom = function () {
             del.addEventListener('click', ()=> {
                 todo.removeProject(div.dataset.index)
                 taskDom(project);   
-                display()
+                homeDom()
             });
 
             title.textContent = project.getName();
@@ -67,7 +68,8 @@ let projectDom = function () {
         // dialog.close()
         dialogHidden()
         button.style.display='block';
-        todo.addProject(projectInput.value);
+        const p = todo.addProject(projectInput.value);
+        taskDom(p)
         projectInput.value=""
         display()
     })

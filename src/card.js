@@ -45,7 +45,7 @@ const card = (() => {
                 display()
             }
         })
-            
+
         div.append(span);
         div.append(del);
         div.append(edit);
