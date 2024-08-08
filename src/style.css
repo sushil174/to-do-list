@@ -1,28 +1,129 @@
+:root {
+    --font-size : 1.2em
+  }
+  
 body {
     margin: 0;
 }
+
+.container button {
+    font-size: var(--font-size);
+}
+
 .container {
     height: 100vh;
     background-color: aqua;
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 5fr;
 }
 
 .sidebar {
+    padding:2em 0.5em;
     background-color: rgb(213, 182, 241);
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
 }
 
+.side-button {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.container button {
+    border: none;
+    padding: 0.5em;
+}
+
+
+/* project  */
+
+.container #project-dialog div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 0.5em;
+    gap: 0.5em;
+}
+
+.container #project-dialog div button {
+    flex: 1;
+}
+.container #project-dialog input {
+    width: 100%;
+    font-size: var(--font-size);
+    border: none;
+    padding-block: 0.5em;
+}
+
+.project-card {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    gap: 0.5em;
+    margin: 0.5em;
+}
+
+.project h3 {
+    text-align: center;
+}
+.sidebar .add-project {
+    font-size: 2em;
+    padding: 0;
+}
+/* end project */
+
+/* task  */
 .tasks {
     background-color: rgb(218, 246, 237);
 }
 
+.tasks .task-add {
+    font-size: var(--font-size);
+    position: fixed;
+    top: 5%;
+    left: 90%;
+}
+
+.tasks #tasklist {
+    margin-top: 1.5em;
+    padding-inline: 20% 20%;
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    /* width: 100%;  */
+}
+.tasks #tasklist h2{
+    text-align: center;
+}
+
+.taskCard {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5em;
+    border: 1px solid black;
+}
+/* .taskCard > * {
+    flex:1;
+} */
+.taskCard .task-text{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.taskCard .task-text .title {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+/* end task  */
+
 #project-dialog{
     display: none;
 }
-
-/* #task-dialog{
-    display: none;
-} */
 
 #add-task {
     display: block;

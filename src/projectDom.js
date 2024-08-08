@@ -1,9 +1,8 @@
-import todo from "./To-do"
 import taskDom from "./taskDom";
 import homeDom from "./homeDom";
+import helper from "./helper";
 
 let projectDom = function () {
-    
     const content = document.querySelector("#content");
     const projectDisplay = document.createElement('div');
     content.append(projectDisplay)
@@ -20,13 +19,17 @@ let projectDom = function () {
     function dialogHidden() {
         dialog.style.display='none';
     }
+
     let display = () => {
         projectDisplay.textContent = '';
-        let projects = todo.getProjects();
+        // const todo = helper.retrive();
+        // let projects = todo.getProjects();
+        let projects = helper.getProjects();
 
         for(let i = 0; i < projects.length ; i++) {
             let project = projects[i];
             const div = document.createElement('div')
+            div.classList.add("project-card")
             div.dataset.index = i;
             const title = document.createElement('button');
             const del = document.createElement('button');
@@ -39,8 +42,9 @@ let projectDom = function () {
             });
 
             del.addEventListener('click', ()=> {
-                todo.removeProject(div.dataset.index)
-                taskDom(project);   
+                helper.removeProject(div.dataset.index)
+                // todo.removeProject(div.dataset.index)  
+                display()
                 homeDom()
             });
 
@@ -53,6 +57,7 @@ let projectDom = function () {
     button.addEventListener('click', ()=>{
         // dialog.show()
         dialogVisible()
+        button.replaceWith(dialog)
         button.style.display='none';
     });
 
@@ -60,6 +65,7 @@ let projectDom = function () {
         // dialog.close()
         dialogHidden()
         button.style.display='block';
+        dialog.replaceWith(button)
 
     });
 
@@ -68,12 +74,12 @@ let projectDom = function () {
         // dialog.close()
         dialogHidden()
         button.style.display='block';
-        const p = todo.addProject(projectInput.value);
-        taskDom(p)
+        dialog.replaceWith(button);
+        helper.addProject(projectInput.value);
         projectInput.value=""
         display()
     })
-    
+    display()
 }
 
 export default projectDom

@@ -1,8 +1,7 @@
-import todo from "./To-do";
 import card from "./card";
-
+import helper from "./helper";
 let taskDom = (project) => {
-
+    const todo = helper.retrive()
     const tasklist = document.querySelector('#tasklist');
     const button = document.querySelector('#add-task');
     const cancel = document.querySelector('#task-cancel')
@@ -17,11 +16,11 @@ let taskDom = (project) => {
     addTask.style.display = 'block';
     let list = []
     function display() {
-        let title = document.createElement('div');
+        let title = document.createElement('h2');
         title.textContent = project.getName();
         tasklist.textContent = '';
         tasklist.append(title)
-        list = project.getTasks();
+        list = helper.getTasks(project.getName());
         for(let i=0;i<list.length;i++){
             let task = list[i]
             card.create(project,task,i,display)
@@ -51,7 +50,10 @@ let taskDom = (project) => {
     
         newConfirm.addEventListener('click', e=>{
             e.preventDefault();
-            project.addTask(title.value,date.value,priority.value,discription.value);
+            helper.addTask(project.getName(),title.value,date.value,priority.value,discription.value)
+            // project.addTask(title.value,date.value,priority.value,discription.value);
+            // const todoJson = JSON.stringify(todo)
+            // console.log(todoJson)
             display()
             title.value =""
             priority.value =""

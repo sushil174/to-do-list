@@ -1,28 +1,16 @@
-// import todo from "./To-do";
+import { isPast } from "date-fns";
 import card from "./card";
 import helper from "./helper";
-
-let today = () => {
+let Due = () => {
     const addTask = document.querySelector('.task-add')
     addTask.style.display = 'none'
     const taskList = document.querySelector('#tasklist');
+    let tasks = []
     // const todo = helper.retrive();
     // const projects = todo.getProjects();
-    const projects = helper.getProjects();
-    let tasks = []
-
-    function getTodayDate() {
-        const today = new Date();
-        const year = today.getFullYear();
-        const month = String(today.getMonth() + 1).padStart(2, '0');
-        const day = String(today.getDate()).padStart(2, '0');
-        return `${year}-${month}-${day}`;
-    }
-
+    const projects = helper.getProjects()
     function todayDisplay(){
-
         taskList.textContent = '';
-        
         for(let i=0;i<projects.length;i++){
             
             let project = projects[i];
@@ -30,9 +18,7 @@ let today = () => {
             tasks = helper.getTasks(project.getName());
             for(let j=0;j<tasks.length;j++) {
                 let task = tasks[j];
-                let currentDate = getTodayDate();
-
-                if(task.getDate() === currentDate) {
+                if(isPast(task.getDate()) && !task.getComplete()) {
                     card.create(project,task,j,todayDisplay)
                 }     
 
@@ -45,4 +31,4 @@ let today = () => {
 };
 
 
-export default today
+export default Due

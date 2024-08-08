@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path')
+const { isPast } = require("date-fns");
 
 module.exports = {
     mode: 'development',
