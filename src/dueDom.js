@@ -8,9 +8,12 @@ let Due = () => {
     let tasks = []
     // const todo = helper.retrive();
     // const projects = todo.getProjects();
-    const projects = helper.getProjects()
     function todayDisplay(){
+        const projects = helper.getProjects()
         taskList.textContent = '';
+        let title = document.createElement('h2');
+        title.textContent = "Past Due";
+        taskList.append(title)
         for(let i=0;i<projects.length;i++){
             
             let project = projects[i];

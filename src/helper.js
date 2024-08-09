@@ -81,7 +81,6 @@ let helper = (() => {
     function getTasks(projectName) {
         const todoList = retrive();
         const project = todoList.getProject(projectName);
-        updateLocalStorage(todoList);
         return project.getTasks()
     }
 

@@ -1,6 +1,7 @@
 import taskDom from "./taskDom";
 import homeDom from "./homeDom";
 import helper from "./helper";
+import deleteSvg from "./img/delete.svg"
 
 let projectDom = function () {
     const content = document.querySelector("#content");
@@ -31,21 +32,24 @@ let projectDom = function () {
             const div = document.createElement('div')
             div.classList.add("project-card")
             div.dataset.index = i;
-            const title = document.createElement('button');
-            const del = document.createElement('button');
-            del.textContent = "Delete";
+            const title = document.createElement('span');
+            // const del = document.createElement('button');
+            const del = document.createElement('img');
+            del.src = deleteSvg;
+            del.alt = "Delete";
             div.append(title)
             div.append(del)
 
-            title.addEventListener('click', () => { 
+            div.addEventListener('click', () => { 
+                console.log("hello")
                 taskDom(project);
             });
 
-            del.addEventListener('click', ()=> {
-                helper.removeProject(div.dataset.index)
-                // todo.removeProject(div.dataset.index)  
-                display()
-                homeDom()
+            del.addEventListener('click', (e)=> {
+                e.stopPropagation();
+                helper.removeProject(div.dataset.index);
+                homeDom();
+                display();
             });
 
             title.textContent = project.getName();
@@ -76,8 +80,12 @@ let projectDom = function () {
         button.style.display='block';
         dialog.replaceWith(button);
         helper.addProject(projectInput.value);
-        projectInput.value=""
+        const todo = helper.retrive();
+        const project = todo.getProject(projectInput.value);
+        taskDom(project)
         display()
+        projectInput.value=""
+        
     })
     display()
 }

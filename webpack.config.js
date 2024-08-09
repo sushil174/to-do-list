@@ -9,7 +9,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             title: 'To-do',
-            template: 'src/index.html'
+            template: path.resolve(__dirname, './src/index.html')
         }),
     ],
     output: {
@@ -34,6 +34,7 @@ module.exports = {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
                 type: 'asset/resource',
             },
+
         ],
     },
 };

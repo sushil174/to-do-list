@@ -1,7 +1,6 @@
 import card from "./card";
 import helper from "./helper";
 let taskDom = (project) => {
-    const todo = helper.retrive()
     const tasklist = document.querySelector('#tasklist');
     const button = document.querySelector('#add-task');
     const cancel = document.querySelector('#task-cancel')

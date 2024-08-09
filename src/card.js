@@ -1,6 +1,6 @@
-
-// import todo from "./To-do";
 import helper from "./helper";
+import editSvg from "./img/edit.svg";
+import deleteSvg from "./img/delete.svg";
 
 const card = (() => {
     let currentIndex = null;
@@ -11,14 +11,30 @@ const card = (() => {
     const priorityEdit = document.querySelector('#edit-task-priority')
     const discriptionEdit = document.querySelector('#edit-task-info')
     let list = []
+
+    function setPriority(task,taskCard) {
+        const priority = task.getPriority();
+        if(priority === "High") {
+            taskCard.style.boxShadow = "inset 0.3em 0 red"
+        }
+
+        if(priority === "Medium") {
+            taskCard.style.boxShadow = "inset 0.3em 0 orange"
+        }
+
+        if(priority === "Low") {
+            taskCard.style.boxShadow = "inset 0.3em 0 blue"
+        }
+    }
     function create(project,task,index,display) {
         list = helper.getTasks(project.getName());
         let taskCard = document.createElement('div');
         taskCard.classList.add('taskCard');
         let textDiv = document.createElement('div');
         textDiv.classList.add('task-text')
-        let check = document.createElement('INPUT');
+        let check = document.createElement('INPUT');']['
         check.setAttribute("type","checkbox");
+        check.classList.add("check")
         check.dataset.index = index;
         check.checked = task.getComplete();
         let title = document.createElement('div')
@@ -26,18 +42,27 @@ const card = (() => {
         let span1 = document.createElement('span');
         span1.dataset.index = index;
         let span2 = document.createElement('span');
-        let edit = document.createElement('button');
-        let del = document.createElement('button');
+        // let edit = document.createElement('button');
+        // let del = document.createElement('button');
         let buttonDiv = document.createElement('div');
         buttonDiv.classList.add('task-buttons');
-        del.textContent = "delete";
-        edit.textContent = "edit";
+        // del.textContent = "delete";
+        let del = document.createElement('img');
+        del.src = deleteSvg;
+        del.alt = "Delete"
+        // del.append(deleteImg)
+        // edit.textContent = "edit";
+        let edit = document.createElement('img');
+        edit.src = editSvg;
+        edit.alt = "Edit"
+        // edit.append(editImg)
         edit.dataset.index = index;
         edit.dataset.project = project.getName()
         del.dataset.project = project.getName()
         del.dataset.index = index;
         span1.textContent = task.getTitle();
         span2.textContent = task.getDate();
+        setPriority(task,taskCard);
 
         if(task.getComplete()) {
             span1.style.textDecoration = "line-through"
@@ -67,23 +92,19 @@ const card = (() => {
     
         del.addEventListener('click', e => {
             helper.removeTask(e.target.dataset.project,e.target.dataset.index)
-            // const projects = todo.getProjects();
-            // project = projects.find(project => project.getName() === e.target.dataset.project)
-            // if(project !== undefined) {
-            //     project.removeTask(e.target.dataset.index)
-            // }
             display()
         })
         title.append(span1)
         title.append(span2)
         textDiv.append(check);
         textDiv.append(title);
-        buttonDiv.append(del);
         buttonDiv.append(edit);
+        buttonDiv.append(del);
         taskCard.append(textDiv);
         taskCard.append(buttonDiv);
         tasklist.append(taskCard);  
     }
+
 
     function buttonListners(display) {
         const cancelEdit = document.querySelector('#edit-task-cancel')

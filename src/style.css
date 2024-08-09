@@ -1,98 +1,144 @@
 :root {
-    --font-size : 1.2em
+    --font-size : 1.2em;
+    --background-color :white 
   }
   
 body {
     margin: 0;
-}
-
-.container button {
-    font-size: var(--font-size);
+    background-color: var(--background-color);
+    font-size: 1.2em;
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
     height: 100vh;
-    background-color: aqua;
+}
+
+.header {
+    padding: 1em 4em;
+    box-shadow: 0px 0.5px 3px -2px black;
+}
+.main {
+    flex-grow: 1;
     display: grid;
     grid-template-columns: 1fr 5fr;
+    
 }
 
 .sidebar {
     padding:2em 0.5em;
-    background-color: rgb(213, 182, 241);
+    /* background-color: #282c34; */
     display: flex;
     flex-direction: column;
     gap: 2em;
+    box-shadow: 0px 0.5px 4px -2px black;
+}
+
+.sidebar img {
+    height: 1.5em;
 }
 
 .side-button {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5em;
+    display: grid;
+    gap: 1em;
+    margin-left: auto;
+    margin-right: auto;
 }
-
-.container button {
-    border: none;
-    padding: 0.5em;
+.side-button div {
+    display: flex;
+    gap: 1em;
+    border-radius: 10px;
+    align-items: center;
+    padding-inline: 4em;
+    padding-block: 0.5em;
+}
+.side-button div:hover {
+    background-color: aliceblue;
 }
 
 
 /* project  */
 
-.container #project-dialog div{
+.add-project {
+    font-size: 1.5em;
+    text-align: center;
+    padding-block: 0.3em;
+    margin: 0 0.4em;
+    background-color: aliceblue;
+    border-radius: 5px;
+}
+#project-dialog {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 0.5em;
-    gap: 0.5em;
+    flex-direction: column;
+    margin-left: 0.5em;
 }
 
-.container #project-dialog div button {
-    flex: 1;
+#project-dialog input {
+    font-size: 1em;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
 }
-.container #project-dialog input {
-    width: 100%;
-    font-size: var(--font-size);
-    border: none;
-    padding-block: 0.5em;
+#project-dialog div {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+    margin-right: 0.5em;
+}
+
+#project-dialog div button {
+    flex: 1;
+    font-size: 1em;
+    padding: 0.5em 0;
 }
 
 .project-card {
-    display: grid;
-    grid-template-columns: 4fr 1fr;
-    gap: 0.5em;
+    display: flex;
     margin: 0.5em;
+    padding: 0 0.5em;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 0.5em;
+    padding-inline: 1.2em;
+    background-color: aliceblue;
+    border: 1px soild black;
+    border-radius: 10px;
+}
+.project-card img {
+    opacity: 0.5;
+    width: 1.3em;
 }
 
+.project-card img:hover{
+    opacity: 1;
+}
 .project h3 {
     text-align: center;
 }
-.sidebar .add-project {
-    font-size: 2em;
-    padding: 0;
-}
+
 /* end project */
 
 /* task  */
-.tasks {
-    background-color: rgb(218, 246, 237);
-}
+
 
 .tasks .task-add {
     font-size: var(--font-size);
-    position: fixed;
-    top: 5%;
-    left: 90%;
+    margin-top: 1em;
+    border: none;
+    width: 100%;
+    padding-block: 0.5em;
+    background-color: aliceblue;
+    border: 1px solid black;
 }
 
+.tasks {
+    padding-inline: 20% 20%;
+}
 .tasks #tasklist {
     margin-top: 1.5em;
-    padding-inline: 20% 20%;
-    /* background-color: aqua; */
     display: flex;
     flex-direction: column;
     gap: 1em;
-    /* width: 100%;  */
 }
 .tasks #tasklist h2{
     text-align: center;
@@ -103,6 +149,35 @@ body {
     justify-content: space-between;
     gap: 0.5em;
     border: 1px solid black;
+    /* background-color: #7f848e; */
+    padding: 0.5em 1em;
+    border: 1px solid black;
+}
+
+.taskCard .check {
+    height: 1.3em;
+    width: 1.3em;
+    -webkit-appearance: none; /* For Safari and Chrome */
+    -moz-appearance: none; /* For Firefox */
+    appearance: none;
+    border: 1px solid #000000;
+    border-radius: 50%; /* Makes the checkbox round */
+    outline: none;
+    cursor: pointer;
+
+
+}
+
+.taskCard .check:checked {
+    background-color: blueviolet;
+}
+
+.taskCard img {
+    width: 1.3em;
+    opacity: 0.5;
+}
+.taskCard img:hover {
+    opacity: 1;
 }
 /* .taskCard > * {
     flex:1;
@@ -112,12 +187,18 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5em;
+    margin-right: 1em;
 }
 
 .taskCard .task-text .title {
     width: 100%;
     display: flex;
     justify-content: space-between;
+}
+
+.task-buttons {
+    display: flex;
+    gap: 1em;
 }
 /* end task  */
 

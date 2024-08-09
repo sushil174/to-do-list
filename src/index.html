@@ -92,34 +92,45 @@
     </dialog>
 
     <div class="container">
-        <div class="sidebar">
-
-            <div class="side-button">
-                <button id="home">Home</button>
-                <button id="today">Today</button>
-                <button id="due">Past Due</button>
-            </div>
-
-            <div class="project">
-                <h3>PROJECTS</h3>
-                <div id="content"></div>
-                <div id="project-dialog">
-                    <input type="text" id="project-title" placeholder="e.g. School Work" autofocus required>
-                    <div>
-                        <button id= "cancel" value="cancel" >Cancel</button>
-                        <button id="confirm" value="default">Confirm</button>
+        <div class="header"><h2>TO DO</h2></div>
+        <div class="main">
+            <div class="sidebar">
+                <div class="side-button">
+                    <div id="home">
+                        <!-- <img src="img/home-circle-outline.svg">
+                        <span>Home</span> -->
+                    </div>
+                    <div id="today">
+                        <!-- <img src="img/calendar-today-outline.svg" alt="">
+                        <span>Today</span> -->
+                    </div>
+                    <div id="due">
+                        <!-- <img src="img/alert-box-outline.svg" alt="">
+                        <span>Past Due</span> -->
                     </div>
                 </div>
+    
+                <div class="project">
+                    <h3>PROJECTS</h3>
+                    <div id="content"></div>
+                    <div id="project-dialog">
+                        <input type="text" id="project-title" placeholder="e.g. School Work" autofocus required>
+                        <div>
+                            <button id="confirm" value="default">Confirm</button>
+                            <button id= "cancel" value="cancel" >Cancel</button>
+                        </div>
+                    </div>
+                </div>
+    
+                <button class="add-project">+</button>
             </div>
-
-            <button class="add-project">+</button>
+    
+            <div class="tasks">
+                <div id="tasklist"></div>
+                <button class ="task-add" id="add-task">Add task</button>
+            </div>
+    
         </div>
-
-        <div class="tasks">
-            <div id="tasklist"></div>
-            <button class ="task-add" id="add-task">Add task</button>
-        </div>
-
     </div>
 
 </body>

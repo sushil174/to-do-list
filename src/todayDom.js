@@ -8,9 +8,8 @@ let today = () => {
     const taskList = document.querySelector('#tasklist');
     // const todo = helper.retrive();
     // const projects = todo.getProjects();
-    const projects = helper.getProjects();
     let tasks = []
-
+    
     function getTodayDate() {
         const today = new Date();
         const year = today.getFullYear();
@@ -18,11 +17,13 @@ let today = () => {
         const day = String(today.getDate()).padStart(2, '0');
         return `${year}-${month}-${day}`;
     }
-
+    
     function todayDisplay(){
-
         taskList.textContent = '';
-        
+        const projects = helper.getProjects();
+        let title = document.createElement('h2');
+        title.textContent = "Today";
+        taskList.append(title)
         for(let i=0;i<projects.length;i++){
             
             let project = projects[i];
