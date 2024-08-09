@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do List</title>
+<script defer src="main.js"></script></head>
+<body>
+
+    <dialog id="task-dialog">
+
+        <form>
+            <ul class="inputs">
+                <li>
+                    <label for="task-title">Title</label>
+                    <input type="text" id="task-title" name="task-title" required>
+                </li>
+
+                <li>
+                    <label for="task-date">Date</label>
+                    <input type="date" id="task-date" name="task-date" required>
+                </li>
+
+                <li>
+                    <label for="task-priority">Priority</label>
+
+                    <select name="priority" id="task-priority">
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select> 
+                </li>
+
+                <li>
+                    <label for="task-info">Discription</label>
+                    <textarea id="task-info" name="task-info" rows="4" cols="10"></textarea>
+                </li>
+                
+            </ul>
+
+            <div>
+
+                <button id= "task-cancel" value="cancel" formmethod="dialog">Cancel</button>
+                <button id="task-confirm" value="default">Confirm</button>
+
+            </div>
+
+        </form>
+
+    </dialog>
+
+
+    <dialog id="edit-task-dialog">
+
+        <form>
+            <ul class="inputs">
+                <li>
+                    <label for="edit-task-title">Title</label>
+                    <input type="text" id="edit-task-title" name="task-title" required>
+                </li>
+
+                <li>
+                    <label for="edit-task-date">Date</label>
+                    <input type="date" id="edit-task-date" name="task-date" required>
+                </li>
+
+                <li>
+                    <label for="edit-task-priority">Priority</label>
+                    <select name="priority" id="edit-task-priority">
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select> 
+                </li>
+
+                <li>
+                    <label for="edit-task-info">Discription</label>
+                    <textarea id="edit-task-info" name="task-info" rows="4" cols="10"> </textarea>
+                </li>
+                
+            </ul>
+
+            <div>
+
+                <button id= "edit-task-cancel" value="cancel" formmethod="dialog">Cancel</button>
+                <button id="edit-task-confirm" value="default">Confirm</button>
+
+            </div>
+
+        </form>
+
+    </dialog>
+
+    <div class="container">
+        <div class="header"><h2>TO DO</h2></div>
+        <div class="main">
+            <div class="sidebar">
+                <div class="side-button">
+                    <div id="home">
+                        <!-- <img src="img/home-circle-outline.svg">
+                        <span>Home</span> -->
+                    </div>
+                    <div id="today">
+                        <!-- <img src="img/calendar-today-outline.svg" alt="">
+                        <span>Today</span> -->
+                    </div>
+                    <div id="due">
+                        <!-- <img src="img/alert-box-outline.svg" alt="">
+                        <span>Past Due</span> -->
+                    </div>
+                </div>
+    
+                <div class="project">
+                    <h3>PROJECTS</h3>
+                    <div id="content"></div>
+                    <div id="project-dialog">
+                        <input type="text" id="project-title" placeholder="e.g. School Work" autofocus required>
+                        <div>
+                            <button id="confirm" value="default">Confirm</button>
+                            <button id= "cancel" value="cancel" >Cancel</button>
+                        </div>
+                    </div>
+                </div>
+    
+                <button class="add-project">+</button>
+            </div>
+    
+            <div class="tasks">
+                <div id="tasklist"></div>
+                <button class ="task-add" id="add-task">Add task</button>
+            </div>
+    
+        </div>
+    </div>
+
+</body>
+</html>
