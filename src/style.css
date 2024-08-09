@@ -1,12 +1,25 @@
+@font-face {
+    font-family: "logo";
+    src: url('fonts/SankofaDisplay-Regular.ttf');
+}
+
+@font-face {
+    font-family: "myFont";
+    src: url("fonts/RobotoCondensed-VariableFont_wght.ttf");
+}
+
 :root {
     --font-size : 1.2em;
-    --background-color :white 
+    --background-color :white ;
+    --first-color: #735DA5;
+    --second-color: #D3C5E5;
   }
   
 body {
     margin: 0;
-    background-color: var(--background-color);
+    background-color: var(--first-color);
     font-size: 1.2em;
+    font-family: "myFont";
 }
 
 .container {
@@ -15,9 +28,19 @@ body {
     height: 100vh;
 }
 
+button,input {
+    font-family: "myFont";
+}
 .header {
-    padding: 1em 4em;
+    padding: 1.5em 5em;
     box-shadow: 0px 0.5px 3px -2px black;
+}
+
+.header h2 {
+    font-family: "logo";
+    font-size: 2em;
+    padding: 0;
+    margin: 0;
 }
 .main {
     flex-grow: 1;
@@ -48,13 +71,14 @@ body {
 .side-button div {
     display: flex;
     gap: 1em;
-    border-radius: 10px;
     align-items: center;
     padding-inline: 4em;
     padding-block: 0.5em;
+    transition: 0.3s;
 }
 .side-button div:hover {
-    background-color: aliceblue;
+    background-color: var(--second-color);
+    /* background-image: linear-gradient(90deg,var(--second-color),var(--first-color) ); */
 }
 
 
@@ -63,10 +87,18 @@ body {
 .add-project {
     font-size: 1.5em;
     text-align: center;
-    padding-block: 0.3em;
+    padding-block: 0.15em;
     margin: 0 0.4em;
-    background-color: aliceblue;
     border-radius: 5px;
+    color: var(--second-color);
+    background-color: var(--first-color);
+    border: 2px solid var(--second-color);
+    transition: 0.3s;
+}
+.add-project:hover{
+    background-color: var(--second-color);
+    color: var(--first-color);
+    border: none;
 }
 #project-dialog {
     display: flex;
@@ -76,8 +108,13 @@ body {
 
 #project-dialog input {
     font-size: 1em;
-    padding: 0.5em;
+    padding: 0.5em 1em;
     margin-bottom: 0.5em;
+    background-color: var(--first-color);
+    border: 2px solid var(--second-color);
+}
+#project-dialog input:focus {
+    outline: none;
 }
 #project-dialog div {
     display: flex;
@@ -91,18 +128,28 @@ body {
     font-size: 1em;
     padding: 0.5em 0;
 }
+#project-dialog div button:first-child {
+    background-color: #20948B;
+    color: white;
+    border: none;
+    outline: none;
+}
+
+#project-dialog div button:last-child {
+    background-color: var(--second-color);
+    border: none;
+    outline: none;
+}
 
 .project-card {
     display: flex;
     margin: 0.5em;
-    padding: 0 0.5em;
     align-items: center;
     justify-content: space-between;
     padding-block: 0.5em;
     padding-inline: 1.2em;
-    background-color: aliceblue;
-    border: 1px soild black;
-    border-radius: 10px;
+    background-color: var(--second-color);
+    transition: 0.3s;
 }
 .project-card img {
     opacity: 0.5;
@@ -122,15 +169,23 @@ body {
 
 
 .tasks .task-add {
-    font-size: var(--font-size);
+    font-size: 1em;
     margin-top: 1em;
     border: none;
     width: 100%;
     padding-block: 0.5em;
-    background-color: aliceblue;
-    border: 1px solid black;
+    transition: 1s;
+    color: var(--second-color);
+    background-color: var(--first-color);
+    border: 2px solid var(--second-color);
+    transition: 0.3s;
+   
 }
-
+.task-add:hover {
+    border: none;
+    background-color: var(--second-color);
+    color: var(--first-color);
+}
 .tasks {
     padding-inline: 20% 20%;
 }
@@ -148,10 +203,8 @@ body {
     display: flex;
     justify-content: space-between;
     gap: 0.5em;
-    border: 1px solid black;
-    /* background-color: #7f848e; */
     padding: 0.5em 1em;
-    border: 1px solid black;
+    background-color: var(--second-color);
 }
 
 .taskCard .check {
@@ -169,7 +222,7 @@ body {
 }
 
 .taskCard .check:checked {
-    background-color: blueviolet;
+    background-color: var(--first-color);
 }
 
 .taskCard img {
@@ -208,4 +261,79 @@ body {
 
 #add-task {
     display: block;
+}
+
+dialog {
+    background-color: var(--first-color);
+    width: 20%;
+}
+form ul li{
+    display: grid;
+    gap: 0.2em;
+}
+
+form ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    font-size: 1em;
+    gap: 1em;
+    padding: 1em;
+    color: white;
+    font-weight: 400;
+}
+dialog {
+    border: none;
+    box-shadow: 10px 10px 0px var(--second-color);
+}
+
+dialog::backdrop{
+    background-color: black;
+    opacity: 0.3;
+}
+/* form div {
+    align-self: flex-end;
+} */
+
+form div {
+    align-self: flex-end;
+}
+form div button {
+    /* margin: 10px;
+    padding: 10px; */
+    /* font-size: 1em; */
+    border: none;
+    /* border-radius: 15px; */
+    padding: 0.5em 1em;
+    background-color: var(--second-color);
+    font-size: 1em;
+    
+}
+form div button:last-child {
+    color: white;
+    background-color: #20948B;
+    border: none;
+}
+form input,textarea,select {
+    font-size: 1em;
+    padding: 0.5em;
+    background-color: var(--second-color);
+    border: none;
+    font-family: "myFont";
+    /* border-radius: 10px; */
+}
+form input,textarea,select:focus {
+    outline: none;
+}
+form li label {
+    align-self: center;
 }

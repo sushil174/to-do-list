@@ -6,6 +6,7 @@ import './style.css';
 import homeSvg from './img/home.svg';
 import alertSvg from './img/alert.svg';
 import todaySvg from './img/today.svg';
+import select from './selected.js';
 
 
 
@@ -34,33 +35,25 @@ createTabs(home,"Home",homeSvg);
 createTabs(today,"Today",todaySvg);
 createTabs(due,"Past Due",alertSvg);
 
+select.selectHome()
 homeDom()
 
 home.addEventListener('click', ()=> {
+    select.selectHome();
     homeDom();
 })
 
 today.addEventListener('click', ()=> {
+    select.selectToday();
     todayDom();
 })
 
 due.addEventListener('click', ()=> {
+    select.selectDue();
     Due();
 })
 
 
 projectDom()
 
-// import helper from "./helper";
-
-// const todo = helper.retrive();
-
-// helper.addProject("work")
-// helper.addProject("hihi")
-// helper.updateLocalStorage(todo);
-
-// const test = helper.retrive()
-// // test.addProject("test")
-// // helper.updateLocalStorage(test)
-// console.log(test)
 

@@ -13,6 +13,8 @@ let homeDom = () => {
         let title = document.createElement('h2');
         title.textContent = "Home";
         taskList.append(title)
+
+    
         for(let i=0;i<projects.length;i++){
             let project = projects[i];
             tasks = helper.getTasks(project.getName());
@@ -21,6 +23,7 @@ let homeDom = () => {
                 card.create(project,task,j,homeDisplay)
             }
         }
+        
     }
 
     card.buttonListners(homeDisplay)

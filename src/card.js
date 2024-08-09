@@ -15,15 +15,15 @@ const card = (() => {
     function setPriority(task,taskCard) {
         const priority = task.getPriority();
         if(priority === "High") {
-            taskCard.style.boxShadow = "inset 0.3em 0 red"
+            taskCard.style.boxShadow = "inset 0.3em 0 #F52549"
         }
 
         if(priority === "Medium") {
-            taskCard.style.boxShadow = "inset 0.3em 0 orange"
-        }
+            taskCard.style.boxShadow = "inset 0.3em 0 #F98866"
+        }   
 
         if(priority === "Low") {
-            taskCard.style.boxShadow = "inset 0.3em 0 blue"
+            taskCard.style.boxShadow = "inset 0.3em 0 #1E2761"
         }
     }
     function create(project,task,index,display) {
@@ -42,20 +42,14 @@ const card = (() => {
         let span1 = document.createElement('span');
         span1.dataset.index = index;
         let span2 = document.createElement('span');
-        // let edit = document.createElement('button');
-        // let del = document.createElement('button');
         let buttonDiv = document.createElement('div');
         buttonDiv.classList.add('task-buttons');
-        // del.textContent = "delete";
         let del = document.createElement('img');
         del.src = deleteSvg;
         del.alt = "Delete"
-        // del.append(deleteImg)
-        // edit.textContent = "edit";
         let edit = document.createElement('img');
         edit.src = editSvg;
         edit.alt = "Edit"
-        // edit.append(editImg)
         edit.dataset.index = index;
         edit.dataset.project = project.getName()
         del.dataset.project = project.getName()
@@ -123,14 +117,10 @@ const card = (() => {
     
         Confirm.addEventListener('click', e => {
             e.preventDefault();
-            // const projects = todo.getProjects();
-            helper.editTask(projectName,currentIndex,titleEdit.value,dateEdit.value,priorityEdit.value,discriptionEdit.value);
-            // const project = projects.find(project => project.getName() === projectName);
-            // if(project!==undefined) {
-            //     const tasks = project.getTasks();
-            //     tasks[currentIndex].setTask(titleEdit.value,dateEdit.value,priorityEdit.value,discriptionEdit.value);
-            // }
-            display();
+            if(titleEdit.value != '') {
+                helper.editTask(projectName,currentIndex,titleEdit.value,dateEdit.value,priorityEdit.value,discriptionEdit.value);
+                display();
+            }
             dialogEdit.close()
         })
     }

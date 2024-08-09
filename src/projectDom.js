@@ -1,7 +1,8 @@
 import taskDom from "./taskDom";
 import homeDom from "./homeDom";
 import helper from "./helper";
-import deleteSvg from "./img/delete.svg"
+import deleteSvg from "./img/delete.svg";
+import select from "./selected";
 
 let projectDom = function () {
     const content = document.querySelector("#content");
@@ -12,7 +13,7 @@ let projectDom = function () {
     const projectInput = document.querySelector('#project-title');
     const cancelBtn = document.querySelector('#cancel');
     const confirmBtn = document.querySelector('#confirm');
-    
+    projectInput.value = ""
     function dialogVisible() {
         dialog.style.display='block';
     }
@@ -26,7 +27,6 @@ let projectDom = function () {
         // const todo = helper.retrive();
         // let projects = todo.getProjects();
         let projects = helper.getProjects();
-
         for(let i = 0; i < projects.length ; i++) {
             let project = projects[i];
             const div = document.createElement('div')
@@ -37,11 +37,11 @@ let projectDom = function () {
             const del = document.createElement('img');
             del.src = deleteSvg;
             del.alt = "Delete";
-            div.append(title)
-            div.append(del)
+            div.append(title);
+            div.append(del);
 
-            div.addEventListener('click', () => { 
-                console.log("hello")
+            div.addEventListener('click', (e) => { 
+                select.addShadow(e);
                 taskDom(project);
             });
 
@@ -62,6 +62,7 @@ let projectDom = function () {
         // dialog.show()
         dialogVisible()
         button.replaceWith(dialog)
+        projectInput.focus();
         button.style.display='none';
     });
 
@@ -70,7 +71,7 @@ let projectDom = function () {
         dialogHidden()
         button.style.display='block';
         dialog.replaceWith(button)
-
+        projectInput.value=""
     });
 
     confirmBtn.addEventListener('click', e => {
@@ -79,14 +80,18 @@ let projectDom = function () {
         dialogHidden()
         button.style.display='block';
         dialog.replaceWith(button);
-        helper.addProject(projectInput.value);
-        const todo = helper.retrive();
-        const project = todo.getProject(projectInput.value);
-        taskDom(project)
-        display()
+        if(projectInput.value != ''){
+            helper.addProject(projectInput.value);
+            const todo = helper.retrive();
+            const project = todo.getProject(projectInput.value);
+            taskDom(project)
+            display();
+            select.addShadowLatestProject()
+        }
         projectInput.value=""
         
     })
+
     display()
 }
 

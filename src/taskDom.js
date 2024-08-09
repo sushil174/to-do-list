@@ -44,19 +44,23 @@ let taskDom = (project) => {
       
         newCancel.addEventListener('click',(e)=>{
             e.preventDefault();
-            dialog.close()
+            dialog.close();
+            title.value =""
+            priority.value =""
+            discription.value=""
+            date.value= ""
         })
     
         newConfirm.addEventListener('click', e=>{
             e.preventDefault();
-            helper.addTask(project.getName(),title.value,date.value,priority.value,discription.value)
-            // project.addTask(title.value,date.value,priority.value,discription.value);
-            // const todoJson = JSON.stringify(todo)
-            // console.log(todoJson)
-            display()
+            if(title.value != ''){
+                helper.addTask(project.getName(),title.value,date.value,priority.value,discription.value)
+                display()
+            }
             title.value =""
             priority.value =""
             discription.value=""
+            date.value= ""
             dialog.close();
         })
 
