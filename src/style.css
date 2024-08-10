@@ -12,9 +12,27 @@
     --font-size : 1.2em;
     --background-color :white ;
     --first-color: #735DA5;
-    --second-color: #D3C5E5;
-  }
-  
+    --second-color: #D3C5E5 ;
+}
+
+.taskCard {
+    display: grid !important;
+    grid-template-columns: 9fr 1fr;
+}
+
+.taskCard p {
+    display: none;
+}
+.taskCard p.collapse {
+    display: block;
+}
+.taskCard .expand {
+    content: url("img/down.svg");
+}
+
+.taskCard .expand.collapse {
+    content: url("img/up.svg");
+}
 body {
     margin: 0;
     background-color: var(--first-color);

@@ -1,6 +1,8 @@
 import helper from "./helper";
 import editSvg from "./img/edit.svg";
 import deleteSvg from "./img/delete.svg";
+import upSvg from "./img/up.svg";
+import downSvg from "./img/down.svg";
 
 const card = (() => {
     let currentIndex = null;
@@ -56,6 +58,9 @@ const card = (() => {
         del.dataset.index = index;
         span1.textContent = task.getTitle();
         span2.textContent = task.getDate();
+
+
+
         setPriority(task,taskCard);
 
         if(task.getComplete()) {
@@ -88,6 +93,7 @@ const card = (() => {
             helper.removeTask(e.target.dataset.project,e.target.dataset.index)
             display()
         })
+    
         title.append(span1)
         title.append(span2)
         textDiv.append(check);
@@ -96,7 +102,21 @@ const card = (() => {
         buttonDiv.append(del);
         taskCard.append(textDiv);
         taskCard.append(buttonDiv);
+        
         tasklist.append(taskCard);  
+
+        if(task.getDiscription() != ''){
+            const expand = document.createElement('img');
+            expand.classList.add('expand')
+            const span3 = document.createElement('p');
+            span3.textContent = task.getDiscription();
+            expand.addEventListener('click', e=> {
+                span3.classList.toggle('collapse');
+                expand.classList.toggle('collapse')
+            }) 
+            buttonDiv.append(expand); 
+            taskCard.append(span3); 
+        }
     }
 
 
@@ -106,7 +126,7 @@ const card = (() => {
 
         let Cancel = cancelEdit.cloneNode(true);
         let Confirm = confirmEdit.cloneNode(true);
-    
+        
         cancelEdit.replaceWith(Cancel)
         confirmEdit.replaceWith(Confirm)
     
