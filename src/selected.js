@@ -1,54 +1,54 @@
-import { add } from 'date-fns'
+import { add } from 'date-fns';
 
 let select = (() => {
-	const home = document.querySelector('#home')
-	const today = document.querySelector('#today')
-	const due = document.querySelector('#due')
-	const shadow = 'inset 0.5em 0 #20948B'
+	const home = document.querySelector('#home');
+	const today = document.querySelector('#today');
+	const due = document.querySelector('#due');
+	const shadow = 'inset 0.5em 0 #20948B';
 
 	function clearAllShadows() {
-		const projects = Array.from(document.querySelectorAll('.project-card'))
+		const projects = Array.from(document.querySelectorAll('.project-card'));
 		projects.forEach((project) => {
-			project.style.boxShadow = 'none'
-		})
-		today.style.boxShadow = 'none'
-		due.style.boxShadow = 'none'
-		home.style.boxShadow = 'none'
+			project.style.boxShadow = 'none';
+		});
+		today.style.boxShadow = 'none';
+		due.style.boxShadow = 'none';
+		home.style.boxShadow = 'none';
 	}
 
 	function selectHome() {
-		clearAllShadows()
-		home.style.boxShadow = shadow
+		clearAllShadows();
+		home.style.boxShadow = shadow;
 	}
 
 	function selectToday() {
-		clearAllShadows()
-		today.style.boxShadow = shadow
+		clearAllShadows();
+		today.style.boxShadow = shadow;
 	}
 
 	function selectDue() {
-		clearAllShadows()
-		due.style.boxShadow = shadow
+		clearAllShadows();
+		due.style.boxShadow = shadow;
 	}
 
 	function selectProject(e) {
-		clearAllShadows()
-		e.target.style.boxShadow = shadow
+		clearAllShadows();
+		e.target.style.boxShadow = shadow;
 	}
 
 	function addShadow(event) {
-		clearAllShadows()
+		clearAllShadows();
 		// Find the closest parent div with class "parent-div"
-		var targetDiv = event.target.closest('.project-card')
+		var targetDiv = event.target.closest('.project-card');
 		if (targetDiv) {
-			targetDiv.style.boxShadow = shadow // Add shadow
+			targetDiv.style.boxShadow = shadow; // Add shadow
 		}
 	}
 
 	function addShadowLatestProject() {
-		select.clearAllShadows()
-		const projectDom = Array.from(document.querySelectorAll('.project-card'))
-		projectDom[projectDom.length - 1].style.boxShadow = shadow
+		select.clearAllShadows();
+		const projectDom = Array.from(document.querySelectorAll('.project-card'));
+		projectDom[projectDom.length - 1].style.boxShadow = shadow;
 	}
 
 	return {
@@ -59,7 +59,7 @@ let select = (() => {
 		addShadow,
 		clearAllShadows,
 		addShadowLatestProject,
-	}
-})()
+	};
+})();
 
-export default select
+export default select;

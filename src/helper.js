@@ -1,11 +1,11 @@
-import Todo from './To-do'
-import Project from './project'
-import Task from './task'
+import Todo from './To-do';
+import Project from './project';
+import Task from './task';
 
 let helper = (() => {
 	function updateLocalStorage(data) {
-		const todoJson = JSON.stringify(data)
-		localStorage.setItem('todo', todoJson)
+		const todoJson = JSON.stringify(data);
+		localStorage.setItem('todo', todoJson);
 	}
 
 	function retrive() {
@@ -14,20 +14,20 @@ let helper = (() => {
 		const todoList = Object.assign(
 			new Todo(),
 			JSON.parse(localStorage.getItem('todo'))
-		)
+		);
 		todoList.setProject(
 			todoList
 				.getProjects()
 				.map((project) => Object.assign(new Project(), project))
-		)
+		);
 		todoList
 			.getProjects()
 			.forEach((project) =>
 				project.setTasks(
 					project.getTasks().map((task) => Object.assign(new Task(), task))
 				)
-			)
-		return todoList
+			);
+		return todoList;
 	}
 
 	// function retrive() {
@@ -50,58 +50,58 @@ let helper = (() => {
 	// }
 
 	function addProject(name) {
-		const todoList = retrive()
-		todoList.addProject(name)
-		updateLocalStorage(todoList)
+		const todoList = retrive();
+		todoList.addProject(name);
+		updateLocalStorage(todoList);
 	}
 
 	function removeProject(index) {
-		const todoList = retrive()
-		todoList.removeProject(index)
-		updateLocalStorage(todoList)
+		const todoList = retrive();
+		todoList.removeProject(index);
+		updateLocalStorage(todoList);
 	}
 
 	function getProjects() {
-		const todoList = retrive()
-		return todoList.getProjects()
+		const todoList = retrive();
+		return todoList.getProjects();
 	}
 
 	function removeTask(projectName, index) {
-		const todoList = retrive()
-		const project = todoList.getProject(projectName)
+		const todoList = retrive();
+		const project = todoList.getProject(projectName);
 		if (project !== undefined) {
-			project.removeTask(index)
+			project.removeTask(index);
 		}
-		updateLocalStorage(todoList)
+		updateLocalStorage(todoList);
 	}
 
 	function addTask(projectName, name, date, priority, discription) {
-		const todoList = retrive()
-		const project = todoList.getProject(projectName)
-		project.addTask(name, date, priority, discription)
-		updateLocalStorage(todoList)
+		const todoList = retrive();
+		const project = todoList.getProject(projectName);
+		project.addTask(name, date, priority, discription);
+		updateLocalStorage(todoList);
 	}
 
 	function editTask(projectName, index, name, date, priority, discription) {
-		const todoList = retrive()
-		const project = todoList.getProject(projectName)
-		const tasks = project.getTasks()
-		tasks[index].setTask(name, date, priority, discription)
-		updateLocalStorage(todoList)
+		const todoList = retrive();
+		const project = todoList.getProject(projectName);
+		const tasks = project.getTasks();
+		tasks[index].setTask(name, date, priority, discription);
+		updateLocalStorage(todoList);
 	}
 
 	function getTasks(projectName) {
-		const todoList = retrive()
-		const project = todoList.getProject(projectName)
-		return project.getTasks()
+		const todoList = retrive();
+		const project = todoList.getProject(projectName);
+		return project.getTasks();
 	}
 
 	function changeComplete(projectName, index) {
-		const todoList = retrive()
-		const project = todoList.getProject(projectName)
-		const task = project.getTasks()[index]
-		task.changeComplete()
-		updateLocalStorage(todoList)
+		const todoList = retrive();
+		const project = todoList.getProject(projectName);
+		const task = project.getTasks()[index];
+		task.changeComplete();
+		updateLocalStorage(todoList);
 	}
 	return {
 		updateLocalStorage,
@@ -114,7 +114,7 @@ let helper = (() => {
 		getTasks,
 		editTask,
 		changeComplete,
-	}
-})()
+	};
+})();
 
-export default helper
+export default helper;
