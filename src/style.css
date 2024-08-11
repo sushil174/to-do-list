@@ -1,357 +1,355 @@
 @font-face {
-    font-family: "logo";
-    src: url('fonts/SankofaDisplay-Regular.ttf');
+	font-family: 'logo';
+	src: url('fonts/SankofaDisplay-Regular.ttf');
 }
 
 @font-face {
-    font-family: "myFont";
-    src: url("fonts/RobotoCondensed-VariableFont_wght.ttf");
+	font-family: 'myFont';
+	src: url('fonts/RobotoCondensed-VariableFont_wght.ttf');
 }
 
 :root {
-    --font-size : 1.2em;
-    --background-color :white ;
-    --first-color: #735DA5;
-    --second-color: #D3C5E5 ;
+	--font-size: 1.2em;
+	--background-color: white;
+	--first-color: #735da5;
+	--second-color: #d3c5e5;
 }
 
 .taskCard {
-    display: grid !important;
-    grid-template-columns: 9fr 1fr;
+	display: grid !important;
+	grid-template-columns: 9fr 1fr;
 }
 
 .taskCard p {
-    display: none;
+	display: none;
 }
 .taskCard p.collapse {
-    display: block;
+	display: block;
 }
 .taskCard .expand {
-    content: url("img/down.svg");
+	content: url('img/down.svg');
 }
 
 .taskCard .expand.collapse {
-    content: url("img/up.svg");
+	content: url('img/up.svg');
 }
 body {
-    margin: 0;
-    background-color: var(--first-color);
-    font-size: 1.2em;
-    font-family: "myFont";
+	margin: 0;
+	background-color: var(--first-color);
+	font-size: 1.2em;
+	font-family: 'myFont';
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
 }
 
-button,input {
-    font-family: "myFont";
+button,
+input {
+	font-family: 'myFont';
 }
 .header {
-    padding: 1.5em 5em;
-    box-shadow: 0px 0.5px 3px -2px black;
+	padding: 1.5em 5em;
+	box-shadow: 0px 0.5px 3px -2px black;
 }
 
 .header h2 {
-    font-family: "logo";
-    font-size: 2em;
-    padding: 0;
-    margin: 0;
+	font-family: 'logo';
+	font-size: 2em;
+	padding: 0;
+	margin: 0;
 }
 .main {
-    flex-grow: 1;
-    display: grid;
-    grid-template-columns: 1fr 5fr;
-    
+	flex-grow: 1;
+	display: grid;
+	grid-template-columns: 1fr 5fr;
 }
 
 .sidebar {
-    padding:2em 0.5em;
-    /* background-color: #282c34; */
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-    box-shadow: 0px 0.5px 4px -2px black;
+	padding: 2em 0.5em;
+	/* background-color: #282c34; */
+	display: flex;
+	flex-direction: column;
+	gap: 2em;
+	box-shadow: 0px 0.5px 4px -2px black;
 }
 
 .sidebar img {
-    height: 1.5em;
+	height: 1.5em;
 }
 
 .side-button {
-    display: grid;
-    gap: 1em;
-    margin-left: auto;
-    margin-right: auto;
+	display: grid;
+	gap: 1em;
+	margin-left: auto;
+	margin-right: auto;
 }
 .side-button div {
-    display: flex;
-    gap: 1em;
-    align-items: center;
-    padding-inline: 4em;
-    padding-block: 0.5em;
-    transition: 0.3s;
+	display: flex;
+	gap: 1em;
+	align-items: center;
+	padding-inline: 4em;
+	padding-block: 0.5em;
+	transition: 0.3s;
 }
 .side-button div:hover {
-    background-color: var(--second-color);
-    /* background-image: linear-gradient(90deg,var(--second-color),var(--first-color) ); */
+	background-color: var(--second-color);
+	/* background-image: linear-gradient(90deg,var(--second-color),var(--first-color) ); */
 }
-
 
 /* project  */
 
 .add-project {
-    font-size: 1.5em;
-    text-align: center;
-    padding-block: 0.15em;
-    margin: 0 0.4em;
-    border-radius: 5px;
-    color: var(--second-color);
-    background-color: var(--first-color);
-    border: 2px solid var(--second-color);
-    transition: 0.3s;
+	font-size: 1.5em;
+	text-align: center;
+	padding-block: 0.15em;
+	margin: 0 0.4em;
+	border-radius: 5px;
+	color: var(--second-color);
+	background-color: var(--first-color);
+	border: 2px solid var(--second-color);
+	transition: 0.3s;
 }
-.add-project:hover{
-    background-color: var(--second-color);
-    color: var(--first-color);
-    border: none;
+.add-project:hover {
+	background-color: var(--second-color);
+	color: var(--first-color);
+	border: none;
 }
 #project-dialog {
-    display: flex;
-    flex-direction: column;
-    margin-left: 0.5em;
+	display: flex;
+	flex-direction: column;
+	margin-left: 0.5em;
 }
 
 #project-dialog input {
-    font-size: 1em;
-    padding: 0.5em 1em;
-    margin-bottom: 0.5em;
-    background-color: var(--first-color);
-    border: 2px solid var(--second-color);
+	font-size: 1em;
+	padding: 0.5em 1em;
+	margin-bottom: 0.5em;
+	background-color: var(--first-color);
+	border: 2px solid var(--second-color);
 }
 #project-dialog input:focus {
-    outline: none;
+	outline: none;
 }
 #project-dialog div {
-    display: flex;
-    justify-content: space-between;
-    gap: 1em;
-    margin-right: 0.5em;
+	display: flex;
+	justify-content: space-between;
+	gap: 1em;
+	margin-right: 0.5em;
 }
 
 #project-dialog div button {
-    flex: 1;
-    font-size: 1em;
-    padding: 0.5em 0;
+	flex: 1;
+	font-size: 1em;
+	padding: 0.5em 0;
 }
 #project-dialog div button:first-child {
-    background-color: #20948B;
-    color: white;
-    border: none;
-    outline: none;
+	background-color: #20948b;
+	color: white;
+	border: none;
+	outline: none;
 }
 
 #project-dialog div button:last-child {
-    background-color: var(--second-color);
-    border: none;
-    outline: none;
+	background-color: var(--second-color);
+	border: none;
+	outline: none;
 }
 
 .project-card {
-    display: flex;
-    margin: 0.5em;
-    align-items: center;
-    justify-content: space-between;
-    padding-block: 0.5em;
-    padding-inline: 1.2em;
-    background-color: var(--second-color);
-    transition: 0.3s;
+	display: flex;
+	margin: 0.5em;
+	align-items: center;
+	justify-content: space-between;
+	padding-block: 0.5em;
+	padding-inline: 1.2em;
+	background-color: var(--second-color);
+	transition: 0.3s;
 }
 .project-card img {
-    opacity: 0.5;
-    width: 1.3em;
+	opacity: 0.5;
+	width: 1.3em;
 }
 
-.project-card img:hover{
-    opacity: 1;
+.project-card img:hover {
+	opacity: 1;
 }
 .project h3 {
-    text-align: center;
+	text-align: center;
 }
 
 /* end project */
 
 /* task  */
 
-
 .tasks .task-add {
-    font-size: 1em;
-    margin-top: 1em;
-    border: none;
-    width: 100%;
-    padding-block: 0.5em;
-    transition: 1s;
-    color: var(--second-color);
-    background-color: var(--first-color);
-    border: 2px solid var(--second-color);
-    transition: 0.3s;
-   
+	font-size: 1em;
+	margin-top: 1em;
+	border: none;
+	width: 100%;
+	padding-block: 0.5em;
+	transition: 1s;
+	color: var(--second-color);
+	background-color: var(--first-color);
+	border: 2px solid var(--second-color);
+	transition: 0.3s;
 }
 .task-add:hover {
-    border: none;
-    background-color: var(--second-color);
-    color: var(--first-color);
+	border: none;
+	background-color: var(--second-color);
+	color: var(--first-color);
 }
 .tasks {
-    padding-inline: 20% 20%;
+	padding-inline: 20% 20%;
 }
 .tasks #tasklist {
-    margin-top: 1.5em;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
+	margin-top: 1.5em;
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
 }
-.tasks #tasklist h2{
-    text-align: center;
+.tasks #tasklist h2 {
+	text-align: center;
 }
 
 .taskCard {
-    display: flex;
-    justify-content: space-between;
-    gap: 0.5em;
-    padding: 0.5em 1em;
-    background-color: var(--second-color);
+	display: flex;
+	justify-content: space-between;
+	gap: 0.5em;
+	padding: 0.5em 1em;
+	background-color: var(--second-color);
 }
 
 .taskCard .check {
-    height: 1.3em;
-    width: 1.3em;
-    -webkit-appearance: none; /* For Safari and Chrome */
-    -moz-appearance: none; /* For Firefox */
-    appearance: none;
-    border: 1px solid #000000;
-    border-radius: 50%; /* Makes the checkbox round */
-    outline: none;
-    cursor: pointer;
-
-
+	height: 1.3em;
+	width: 1.3em;
+	-webkit-appearance: none; /* For Safari and Chrome */
+	-moz-appearance: none; /* For Firefox */
+	appearance: none;
+	border: 1px solid #000000;
+	border-radius: 50%; /* Makes the checkbox round */
+	outline: none;
+	cursor: pointer;
 }
 
 .taskCard .check:checked {
-    background-color: var(--first-color);
+	background-color: var(--first-color);
 }
 
 .taskCard img {
-    width: 1.3em;
-    opacity: 0.5;
+	width: 1.3em;
+	opacity: 0.5;
 }
 .taskCard img:hover {
-    opacity: 1;
+	opacity: 1;
 }
 /* .taskCard > * {
     flex:1;
 } */
-.taskCard .task-text{
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-    margin-right: 1em;
+.taskCard .task-text {
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+	margin-right: 1em;
 }
 
 .taskCard .task-text .title {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
 }
 
 .task-buttons {
-    display: flex;
-    gap: 1em;
+	display: flex;
+	gap: 1em;
 }
 /* end task  */
 
-#project-dialog{
-    display: none;
+#project-dialog {
+	display: none;
 }
 
 #add-task {
-    display: block;
+	display: block;
 }
 
 dialog {
-    background-color: var(--first-color);
-    width: 20%;
+	background-color: var(--first-color);
+	width: 20%;
 }
-form ul li{
-    display: grid;
-    gap: 0.2em;
+form ul li {
+	display: grid;
+	gap: 0.2em;
 }
 
 form ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    margin: 0;
-    padding: 0;
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	margin: 0;
+	padding: 0;
 }
 
 form {
-    margin-top: 1em;
-    display: flex;
-    flex-direction: column;
-    font-size: 1em;
-    gap: 1em;
-    padding: 1em;
-    color: white;
-    font-weight: 400;
+	margin-top: 1em;
+	display: flex;
+	flex-direction: column;
+	font-size: 1em;
+	gap: 1em;
+	padding: 1em;
+	color: white;
+	font-weight: 400;
 }
 dialog {
-    border: none;
-    box-shadow: 10px 10px 0px var(--second-color);
+	border: none;
+	box-shadow: 10px 10px 0px var(--second-color);
 }
 
-dialog::backdrop{
-    background-color: black;
-    opacity: 0.3;
+dialog::backdrop {
+	background-color: black;
+	opacity: 0.3;
 }
 /* form div {
     align-self: flex-end;
 } */
 
 form div {
-    align-self: flex-end;
+	align-self: flex-end;
 }
 form div button {
-    /* margin: 10px;
+	/* margin: 10px;
     padding: 10px; */
-    /* font-size: 1em; */
-    border: none;
-    /* border-radius: 15px; */
-    padding: 0.5em 1em;
-    background-color: var(--second-color);
-    font-size: 1em;
-    
+	/* font-size: 1em; */
+	border: none;
+	/* border-radius: 15px; */
+	padding: 0.5em 1em;
+	background-color: var(--second-color);
+	font-size: 1em;
 }
 form div button:last-child {
-    color: white;
-    background-color: #20948B;
-    border: none;
+	color: white;
+	background-color: #20948b;
+	border: none;
 }
-form input,textarea,select {
-    font-size: 1em;
-    padding: 0.5em;
-    background-color: var(--second-color);
-    border: none;
-    font-family: "myFont";
-    /* border-radius: 10px; */
+form input,
+textarea,
+select {
+	font-size: 1em;
+	padding: 0.5em;
+	background-color: var(--second-color);
+	border: none;
+	font-family: 'myFont';
+	/* border-radius: 10px; */
 }
-form input,textarea,select:focus {
-    outline: none;
+form input,
+textarea,
+select:focus {
+	outline: none;
 }
 form li label {
-    align-self: center;
+	align-self: center;
 }

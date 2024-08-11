@@ -1,74 +1,77 @@
-import card from "./card";
-import helper from "./helper";
+import card from './card'
+import helper from './helper'
 let taskDom = (project) => {
-    const tasklist = document.querySelector('#tasklist');
-    const button = document.querySelector('#add-task');
-    const cancel = document.querySelector('#task-cancel')
-    const confirm = document.querySelector('#task-confirm')
-    const dialog = document.querySelector('#task-dialog')
-    const title = document.querySelector('#task-title')
-    const date = document.querySelector('#task-date')
-    const priority = document.querySelector('#task-priority')
-    const discription = document.querySelector('#task-info')
-    const addTask = document.querySelector('.task-add')
+	const tasklist = document.querySelector('#tasklist')
+	const button = document.querySelector('#add-task')
+	const cancel = document.querySelector('#task-cancel')
+	const confirm = document.querySelector('#task-confirm')
+	const dialog = document.querySelector('#task-dialog')
+	const title = document.querySelector('#task-title')
+	const date = document.querySelector('#task-date')
+	const priority = document.querySelector('#task-priority')
+	const discription = document.querySelector('#task-info')
+	const addTask = document.querySelector('.task-add')
 
-    addTask.style.display = 'block';
-    let list = []
-    function display() {
-        let title = document.createElement('h2');
-        title.textContent = project.getName();
-        tasklist.textContent = '';
-        tasklist.append(title)
-        list = helper.getTasks(project.getName());
-        for(let i=0;i<list.length;i++){
-            let task = list[i]
-            card.create(project,task,i,display)
-        }
-    }
+	addTask.style.display = 'block'
+	let list = []
+	function display() {
+		let title = document.createElement('h2')
+		title.textContent = project.getName()
+		tasklist.textContent = ''
+		tasklist.append(title)
+		list = helper.getTasks(project.getName())
+		for (let i = 0; i < list.length; i++) {
+			let task = list[i]
+			card.create(project, task, i, display)
+		}
+	}
 
-    display()
+	display()
 
-    card.buttonListners(display)
-    function removeListeners() {
-        let newButton = button.cloneNode(true);
-        let newCancel = cancel.cloneNode(true);
-        let newConfirm = confirm.cloneNode(true);
+	card.buttonListners(display)
+	function removeListeners() {
+		let newButton = button.cloneNode(true)
+		let newCancel = cancel.cloneNode(true)
+		let newConfirm = confirm.cloneNode(true)
 
-        button.replaceWith(newButton)
-        cancel.replaceWith(newCancel)
-        confirm.replaceWith(newConfirm)
+		button.replaceWith(newButton)
+		cancel.replaceWith(newCancel)
+		confirm.replaceWith(newConfirm)
 
-        newButton.addEventListener('click',(e)=> {
-            dialog.showModal();
-        });
-      
-        newCancel.addEventListener('click',(e)=>{
-            e.preventDefault();
-            dialog.close();
-            title.value =""
-            priority.value =""
-            discription.value=""
-            date.value= ""
-        })
-    
-        newConfirm.addEventListener('click', e=>{
-            e.preventDefault();
-            if(title.value != ''){
-                helper.addTask(project.getName(),title.value,date.value,priority.value,discription.value)
-                display()
-            }
-            title.value =""
-            priority.value =""
-            discription.value=""
-            date.value= ""
-            dialog.close();
-        })
+		newButton.addEventListener('click', (e) => {
+			dialog.showModal()
+		})
 
-    }
-    
-    removeListeners();
- 
-};
+		newCancel.addEventListener('click', (e) => {
+			e.preventDefault()
+			dialog.close()
+			title.value = ''
+			priority.value = ''
+			discription.value = ''
+			date.value = ''
+		})
 
+		newConfirm.addEventListener('click', (e) => {
+			e.preventDefault()
+			if (title.value != '') {
+				helper.addTask(
+					project.getName(),
+					title.value,
+					date.value,
+					priority.value,
+					discription.value
+				)
+				display()
+			}
+			title.value = ''
+			priority.value = ''
+			discription.value = ''
+			date.value = ''
+			dialog.close()
+		})
+	}
+
+	removeListeners()
+}
 
 export default taskDom
