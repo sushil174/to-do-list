@@ -11,8 +11,8 @@
 :root {
 	--font-size: 1.2em;
 	--background-color: white;
-	--first-color: #735da5;
-	--second-color: #d3c5e5;
+	--first-color:#4F4557;
+	--second-color: #F4EEE0;
 }
 
 .taskCard {
