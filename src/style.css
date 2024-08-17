@@ -130,7 +130,9 @@ input {
 
 #project-dialog input {
 	font-size: 1em;
-	padding: 0.5em 1em;
+	padding: 0.5em;
+	width: 0;
+	flex-grow: 1;
 	margin-bottom: 0.5em;
 	background-color: var(--first-color);
 	border: 2px solid var(--second-color);
