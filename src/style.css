@@ -11,8 +11,10 @@
 :root {
 	--font-size: 1.2em;
 	--background-color: white;
-	--first-color:#635985;
-	--second-color: #ebdaf5;
+	/* --first-color:#635985; */
+	--first-color:#475569;
+	--side-bar:#334155;
+	--second-color: #e2e8f0;
 }
 
 .taskCard {
@@ -54,6 +56,8 @@ input {
 	padding: 1.5em 5em;
 	box-shadow: 0px 0.5px 3px -2px black;
 	color :white;
+	background-color: var(--side-bar);
+	display: none;
 }
 
 .header h2 {
@@ -70,7 +74,7 @@ input {
 
 .sidebar {
 	padding: 2em 0.5em;
-	/* background-color: #282c34; */
+	background-color: var(--side-bar);
 	display: flex;
 	flex-direction: column;
 	/* gap: 2em; */
@@ -99,7 +103,8 @@ input {
 	transition: box-shadow 0.3s;
 }
 .side-button div:hover {
-	outline:1px solid #20948B;
+	/* outline:1px solid #20948B; */
+	transform: scale(1.03);
 	/* background-color: var(--second-color); */
 	/* background-image: linear-gradient(90deg,var(--second-color),var(--first-color) ); */
 }

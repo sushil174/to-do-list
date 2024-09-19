@@ -38,7 +38,7 @@ let taskDom = (project) => {
 		cancel.replaceWith(newCancel);
 		confirm.replaceWith(newConfirm);
 
-		newButton.addEventListener('click', (e) => {
+		newButton.addEventListener('click', () => {
 			dialog.showModal();
 		});
 
@@ -75,3 +75,5 @@ let taskDom = (project) => {
 };
 
 export default taskDom;
+
+
