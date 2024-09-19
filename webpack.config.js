@@ -1,6 +1,12 @@
+/* eslint-disable no-undef */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
-const { isPast } = require('date-fns');
+
+// import path from 'path'
+// import HtmlWebpackPlugin from 'html-webpack-plugin'
+// import { fileURLToPath } from 'url';
+// const __filename = fileURLToPath(import.meta.url)
+// const __dirname = path.dirname(__filename)
 
 module.exports = {
 	mode: 'development',
