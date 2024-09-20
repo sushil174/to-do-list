@@ -273,27 +273,32 @@ input {
 	margin: 0;
 	padding: 0.5em 1em;
 	background-color: var(--second-color);
-	transition: max-height 0.3s;
 }
 
 .disc.collapse {
 	display: block;
-	/* margin: 0;
-	padding: 0.5em 1em;
-	background-color: var(--second-color); */
 	transform-origin: top;
-	animation: show 0.3s;
+	animation-name: show,heightShow;
+	animation-duration: 0.3s;
+	/* animation: show 0.3s ease-in; */
 }
 
 @keyframes show {
 	0% {
-		max-height: 0;
-	  transform: scale(1, 0);
+	  	transform: scale(1, 0);
 	}
 
 	100% {
-		max-height: 1em;
-	  transform: scale(1, 1);
+	  	transform: scale(1, 1);
+	}
+}
+@keyframes heightShow {
+	0% {
+	  	max-height: 0;
+	}
+
+	100% {
+	  	max-height: 100px;
 	}
 }
 
