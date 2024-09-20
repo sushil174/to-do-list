@@ -10,6 +10,7 @@ const card = (() => {
 	const dateEdit = document.querySelector('#edit-task-date');
 	const priorityEdit = document.querySelector('#edit-task-priority');
 	const discriptionEdit = document.querySelector('#edit-task-info');
+	let visible = false
 	let list = [];
 
 	function setPriority(task, taskCard) {
@@ -29,7 +30,9 @@ const card = (() => {
 	function create(project, task, index, display) {
 		list = helper.getTasks(project.getName());
 		const taskCard = document.createElement('div');
+		const taskContainer = document.createElement('div');
 		taskCard.classList.add('taskCard');
+		taskContainer.classList.add('taskContainer');
 		const textDiv = document.createElement('div');
 		textDiv.classList.add('task-text');
 		const check = document.createElement('INPUT');
@@ -57,7 +60,9 @@ const card = (() => {
 		span1.textContent = task.getTitle();
 		span2.textContent = task.getDate();
 
-		setPriority(task, taskCard);
+		taskCard.dataset.visible = visible
+		// setPriority(task, taskCard);
+		setPriority(task, taskContainer);
 
 		if (task.getComplete()) {
 			span1.style.textDecoration = 'line-through';
@@ -94,21 +99,28 @@ const card = (() => {
 		textDiv.append(title);
 		buttonDiv.append(edit);
 		buttonDiv.append(del);
-		taskCard.append(textDiv);
-		taskCard.append(buttonDiv);
+		// taskCard.append(textDiv);
+		// taskCard.append(buttonDiv);
+		taskContainer.append(textDiv);
+		taskContainer.append(buttonDiv);
+		taskCard.append(taskContainer);
 		tasklist.append(taskCard);
 
 		if (task.getDiscription() != '') {
 			const expand = document.createElement('img');
 			expand.classList.add('expand');
 			const span3 = document.createElement('p');
+			span3.classList.add('disc')
 			span3.textContent = task.getDiscription();
 			expand.addEventListener('click', () => {
+				if(!visible) visible = true
+				else visible = false
 				span3.classList.toggle('collapse');
 				expand.classList.toggle('collapse');
 			});
 			buttonDiv.append(expand);
 			taskCard.append(span3);
+			setPriority(task,span3)
 		}
 	}
 
@@ -142,6 +154,13 @@ const card = (() => {
 			}
 			dialogEdit.close();
 		});
+
+		// window.addEventListener("click", (e) => {
+		// 	if (!taskCard.contains(e.target)) {
+		// 	  span3.classList.remove("collapse")
+		// 	  expand.classList.remove("collaspe")
+		// 	}
+		//   })
 	}
 
 	return {
