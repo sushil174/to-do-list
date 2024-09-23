@@ -374,21 +374,30 @@ select:focus {
 form li label {
 	align-self: center;
 }
-
+.sidebar-show {
+	display: block;
+	transform : translateX(-100%)
+}
 
 @media(max-width:1000px) {
 		body{
 			height: auto;
+			position: relative;
 		}
-		/* .tasks {
+		.tasks {
 			margin: 1em;
 			padding: 0;
 			width: auto;
 		}
 
+		.sidebar {
+			/* width: 80%; */
+			left:100%;
+		}
+
 		.main {
 			display: block;
-		} */
+		}
 }
 
 @media(max-width:600px) {
