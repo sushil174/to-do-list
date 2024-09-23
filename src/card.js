@@ -113,8 +113,6 @@ const card = (() => {
 			span3.classList.add('disc')
 			span3.textContent = task.getDiscription();
 			expand.addEventListener('click', () => {
-				if(!visible) visible = true
-				else visible = false
 				span3.classList.toggle('collapse');
 				expand.classList.toggle('collapse');
 			});
