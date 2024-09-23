@@ -381,6 +381,7 @@ form li label {
 
 @media(max-width:1000px) {
 		body{
+			font-size: 1rem;
 			height: auto;
 			position: relative;
 		}
@@ -392,9 +393,23 @@ form li label {
 
 		.sidebar {
 			/* width: 80%; */
+			margin: 1px;
+			padding: 10px;
 			left:100%;
 		}
-
+		.side-button {
+			gap: 10px;
+			color :white;
+			margin-bottom: 10px;
+		}
+		.side-button div {
+			display: flex;
+			gap: 10px;
+			padding-inline-start: 1em;
+			padding-block: 0.5em;
+			align-items: center;
+			transition: box-shadow 0.3s;
+		}
 		.main {
 			display: block;
 		}
