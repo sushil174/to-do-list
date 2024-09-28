@@ -1,7 +1,7 @@
-import { isPast, isToday } from 'date-fns';
+import { isFuture } from 'date-fns';
 import card from './card';
 import helper from './helper';
-let Due = () => {
+let Week = () => {
 	const addTask = document.querySelector('.task-add');
 	addTask.style.display = 'none';
 	const taskList = document.querySelector('#tasklist');
@@ -20,7 +20,7 @@ let Due = () => {
 			tasks = helper.getTasks(project.getName());
 			for (let j = 0; j < tasks.length; j++) {
 				let task = tasks[j];
-				if (isPast(task.getDate()) && !task.getComplete() && !isToday(task.getDate())) {
+				if (isFuture(task.getDate())) {
 					card.create(project, task, j, todayDisplay);
 				}
 			}
@@ -31,5 +31,5 @@ let Due = () => {
 	todayDisplay();
 };
 
-export default Due;
+export default Week;
 

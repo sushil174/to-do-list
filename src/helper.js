@@ -102,6 +102,7 @@ let helper = (() => {
 		const task = project.getTasks()[index];
 		task.changeComplete();
 		updateLocalStorage(todoList);
+		return task.getComplete()
 	}
 	return {
 		updateLocalStorage,

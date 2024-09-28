@@ -2,15 +2,18 @@ import projectDom from './projectDom.js';
 import homeDom from './homeDom.js';
 import todayDom from './todayDom.js';
 import Due from './dueDom.js';
+import Week from './weekDom.js';
 import './style.css';
 import homeSvg from './img/home.svg';
 import alertSvg from './img/alert.svg';
 import todaySvg from './img/today.svg';
+import upcomingSvg from './img/upcoming.svg'
 import select from './selected.js';
 
 const home = document.querySelector('#home');
 const today = document.querySelector('#today');
 const due = document.querySelector('#due');
+const week = document.querySelector('#week');
 
 // const homeImg = document.createElement('img');
 // homeImg.src = homeSvg;
@@ -31,6 +34,7 @@ function createTabs(main, name, img) {
 createTabs(home, 'Home', homeSvg);
 createTabs(today, 'Today', todaySvg);
 createTabs(due, 'Past Due', alertSvg);
+createTabs(week, 'Up Coming',upcomingSvg )
 
 select.selectHome();
 homeDom();
@@ -50,6 +54,9 @@ due.addEventListener('click', () => {
 	Due();
 });
 
-
+week.addEventListener('click', () => {
+	select.selectWeek();
+	Week();
+});
 
 projectDom();

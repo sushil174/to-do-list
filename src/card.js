@@ -70,12 +70,23 @@ const card = (() => {
 
 		check.addEventListener('click', () => {
 			helper.changeComplete(project.getName(), index);
-			display();
+			if (task.getComplete()) {
+				span1.style.textDecoration = 'line-through';
+			}
+			// display();
 		});
 
 		title.addEventListener('click', () => {
-			helper.changeComplete(project.getName(), index);
-			display();
+			const change = helper.changeComplete(project.getName(), index);
+			if (change) {
+				span1.style.textDecoration = 'line-through';
+				check.checked = true
+			}
+			else {
+				span1.style.textDecoration = 'none';
+				check.checked = false
+			}
+			// display();
 		});
 
 		edit.addEventListener('click', (e) => {

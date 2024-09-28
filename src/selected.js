@@ -4,6 +4,8 @@ let select = (() => {
 	const home = document.querySelector('#home');
 	const today = document.querySelector('#today');
 	const due = document.querySelector('#due');
+	const week = document.querySelector('#week');
+
 	const shadow = 'inset 0.5em 0 #20948B';
 
 	function clearAllShadows() {
@@ -14,6 +16,7 @@ let select = (() => {
 		today.style.boxShadow = 'none';
 		due.style.boxShadow = 'none';
 		home.style.boxShadow = 'none';
+		week.style.boxShadow = 'none';
 	}
 
 	function selectHome() {
@@ -34,6 +37,11 @@ let select = (() => {
 	function selectProject(e) {
 		clearAllShadows();
 		e.target.style.boxShadow = shadow;
+	}
+
+	function selectWeek(e) {
+		clearAllShadows();
+		week.style.boxShadow = shadow;
 	}
 
 	function addShadow(event) {
@@ -59,6 +67,7 @@ let select = (() => {
 		addShadow,
 		clearAllShadows,
 		addShadowLatestProject,
+		selectWeek,
 	};
 })();
 
