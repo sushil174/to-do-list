@@ -93,7 +93,6 @@ input {
 	text-align: center;
 	padding-block: 0.15em;
 	margin: 0 0.4em;
-	border-radius: 5px;
 	color: var(--second-color);
 	background-color: var(--first-color);
 	border: 2px solid var(--second-color);
@@ -327,7 +326,8 @@ form {
 }
 dialog {
 	border: none;
-	box-shadow: 10px 10px 0px var(--second-color);
+	width: min(100%, 500px);
+	/* box-shadow: 10px 10px 0px var(--second-color); */
 }
 
 dialog::backdrop {
