@@ -6,7 +6,7 @@ let select = (() => {
 	const due = document.querySelector('#due');
 	const week = document.querySelector('#week');
 
-	const shadow = 'inset 0.5em 0 #20948B';
+	const shadow = 'inset 0.5em 0 #9F73AB';
 
 	function clearAllShadows() {
 		const projects = Array.from(document.querySelectorAll('.project-card'));

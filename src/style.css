@@ -8,14 +8,23 @@
 	src: url('fonts/RobotoCondensed-VariableFont_wght.ttf');
 }
 
-:root {
+/* :root {
 	--font-size: 1.2em;
 	--background-color: white;
-	/* --first-color:#635985; */
 	--first-color:#475569;
 	--side-bar:#334155;
 	--second-color: #e2e8f0;
+} */
+
+:root {
+	--font-size: 1.2em;
+	--background-color: white;
+	--first-color:#404258;
+	--side-bar:#474E68;
+	--second-color: #D8D8D8;
 }
+
+
 
 body {
 	margin: 0;
@@ -167,7 +176,9 @@ input {
 	opacity: 1;
 }
 .project h3 {
-	text-align: center;
+	/* text-align: center; */
+	padding: .5em;
+	margin: 0.5em;
 	color: white;
 }
 
@@ -422,5 +433,11 @@ form li label {
 		left: 50%;
 		top: 40%;
 	}
+
+	.side-button, .project #content > div {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+
 
 }

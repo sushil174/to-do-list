@@ -69,9 +69,12 @@ const card = (() => {
 		}
 
 		check.addEventListener('click', () => {
-			helper.changeComplete(project.getName(), index);
-			if (task.getComplete()) {
-				span1.style.textDecoration = 'line-through';
+			const change = helper.changeComplete(project.getName(), index);
+			if (change) {
+				span1.style.textDecoration = 'line-through'
+			}
+			else {
+				span1.style.textDecoration = 'none'
 			}
 			// display();
 		});
