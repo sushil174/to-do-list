@@ -434,10 +434,18 @@ form li label {
 		top: 40%;
 	}
 
+	.project-card {
+		padding: .5em;
+		flex-grow: 1;
+		flex-basis: 6em;
+	}
 	.side-button, .project #content > div {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: stretch;
 	}
 
-
+	.side-button > * {
+		flex-grow: 1;
+	}
 }
