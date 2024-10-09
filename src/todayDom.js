@@ -6,9 +6,6 @@ let today = () => {
 	const addTask = document.querySelector('.task-add');
 	addTask.style.display = 'none';
 	const taskList = document.querySelector('#tasklist');
-	// const todo = helper.retrive();
-	// const projects = todo.getProjects();
-	let tasks = [];
 
 	function getTodayDate() {
 		const today = new Date();
@@ -24,19 +21,16 @@ let today = () => {
 		let title = document.createElement('h2');
 		title.textContent = 'Today';
 		taskList.append(title);
-		for (let i = 0; i < projects.length; i++) {
-			let project = projects[i];
+		projects.forEach(project => {
+			const tasks = helper.getTasks(project.getName());
 
-			tasks = helper.getTasks(project.getName());
-			for (let j = 0; j < tasks.length; j++) {
-				let task = tasks[j];
-				let currentDate = getTodayDate();
+			tasks
+				.filter(task => task.getDate() === getTodayDate())
+				.forEach((task,index) => {
+					card.create(project,task,index,todayDisplay)
+				})
+		})
 
-				if (task.getDate() === currentDate) {
-					card.create(project, task, j, todayDisplay);
-				}
-			}
-		}
 	}
 
 	card.buttonListners(todayDisplay);

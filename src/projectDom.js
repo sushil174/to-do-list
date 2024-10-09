@@ -24,8 +24,6 @@ let projectDom = function () {
 
 	let display = () => {
 		projectDisplay.textContent = '';
-		// const todo = helper.retrive();
-		// let projects = todo.getProjects();
 		let projects = helper.getProjects();
 		for (let i = 0; i < projects.length; i++) {
 			let project = projects[i];
@@ -33,7 +31,6 @@ let projectDom = function () {
 			div.classList.add('project-card');
 			div.dataset.index = i;
 			const title = document.createElement('span');
-			// const del = document.createElement('button');
 			const del = document.createElement('img');
 			del.src = deleteSvg;
 			del.alt = 'Delete';
