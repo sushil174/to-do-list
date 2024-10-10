@@ -9,7 +9,7 @@ let Week = () => {
 		const projects = helper.getProjects();
 		taskList.textContent = '';
 		let title = document.createElement('h2');
-		title.textContent = 'Past Due';
+		title.textContent = 'Up Coming';
 		taskList.append(title);
 
 
