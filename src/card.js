@@ -16,15 +16,15 @@ const card = (() => {
 	function setPriority(task, taskCard) {
 		const priority = task.getPriority();
 		if (priority === 'High') {
-			taskCard.style.boxShadow = 'inset 0.3em 0 #F52549';
+			taskCard.style.boxShadow = 'inset 0.4em 0 #F52549';
 		}
 
 		if (priority === 'Medium') {
-			taskCard.style.boxShadow = 'inset 0.3em 0 #F98866';
+			taskCard.style.boxShadow = 'inset 0.4em 0 #F98866';
 		}
 
 		if (priority === 'Low') {
-			taskCard.style.boxShadow = 'inset 0.3em 0 #1E2761';
+			taskCard.style.boxShadow = 'inset 0.4em 0 #1E2761';
 		}
 	}
 	function create(project, task, index, display) {
@@ -128,6 +128,11 @@ const card = (() => {
 			span3.textContent = task.getDiscription();
 			expand.addEventListener('click', () => {
 				span3.classList.toggle('collapse');
+				if(span3.classList.contains('collapse')) {
+					taskContainer.classList.add('radius-change')
+				} else {
+					taskContainer.classList.remove('radius-change')
+				}
 				expand.classList.toggle('collapse');
 			});
 			buttonDiv.append(expand);
@@ -167,12 +172,6 @@ const card = (() => {
 			dialogEdit.close();
 		});
 
-		// window.addEventListener("click", (e) => {
-		// 	if (!taskCard.contains(e.target)) {
-		// 	  span3.classList.remove("collapse")
-		// 	  expand.classList.remove("collaspe")
-		// 	}
-		//   })
 	}
 
 	return {
