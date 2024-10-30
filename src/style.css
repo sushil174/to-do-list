@@ -7,6 +7,10 @@
 	font-family: 'myFont';
 	src: url('fonts/RobotoCondensed-VariableFont_wght.ttf');
 }
+button, .side-button div, .project, .taskCard{
+	cursor: pointer;
+}
+
 
 /* :root {
 	--font-size: 1.2em;
@@ -70,7 +74,7 @@ input {
 }
 
 .sidebar {
-	padding: 2em 0.5em;
+	padding: 2em .8em;
 	background-color: var(--side-bar);
 	display: flex;
 	flex-direction: column;
@@ -95,9 +99,11 @@ input {
 	padding-block: 0.5em;
 	align-items: center;
 	transition: box-shadow 0.3s;
+	border-radius: 5px;
+	background-color: var(--first-color);
 }
 .side-button div:hover {
-	transform: scale(1.03);
+	background-color: #222121;
 }
 
 /* project  */
@@ -106,23 +112,23 @@ input {
 	font-size: 1.5em;
 	text-align: center;
 	padding-block: 0.15em;
-	margin: 0 0.4em;
+	/* margin: 0 0.4em; */
 	color: var(--second-color);
 	background-color: var(--first-color);
-	border: 1px solid var(--second-color);
-	/* border: none; */
+	/* border: 1px solid var(--second-color); */
+	border: none;
 	border-radius: 5px;
-	transition: 0.3s;
+	transition: background-color .3s;
 }
 .add-project:hover {
 	background-color: var(--second-color);
 	color: var(--first-color);
-	/* border: none; */
 }
 #project-dialog {
 	display: flex;
 	flex-direction: column;
 	margin-left: 0.5em;
+	border-radius: 5px;
 }
 
 #project-dialog input {
@@ -162,7 +168,8 @@ input {
 
 .project-card {
 	display: flex;
-	margin: 0.5em;
+	/* margin: 0.5em; */
+	margin-bottom: 0.5em;
 	align-items: center;
 	justify-content: space-between;
 	padding-block: 0.5em;
@@ -170,11 +177,10 @@ input {
 	background-color: var(--second-color);
 	transition: box-shadow 0.2s;
 	border-radius: 5px;
+	
 }
 
-.project-card:hover {
-	transform: scale(1.02);
-}
+
 .project-card img {
 	opacity: 0.5;
 	width: 1.3em;
@@ -184,9 +190,6 @@ input {
 	opacity: 1;
 }
 .project h3 {
-	/* text-align: center; */
-	padding: .5em;
-	margin: 0.5em;
 	color: white;
 }
 
@@ -339,6 +342,7 @@ input {
 
 dialog {
 	background-color: var(--first-color);
+	border-radius: 5px;
 }
 form ul li {
 	display: grid;
@@ -460,7 +464,7 @@ form li label {
 		width: 80%;
 		transform: translate(-50%,-50%);
 		left: 50%;
-		top: 40%;
+		top: 100%;
 	}
 
 	.project-card {
@@ -471,11 +475,12 @@ form li label {
 	.side-button, .project #content > div {
 		display: flex;
 		flex-wrap: wrap;
+		overflow-x: auto;
 		justify-content: stretch;
 	}
 
 	.side-button > * {
 		flex-grow: 1;
-		border: 1px solid var(--second-color);
+		/* border: px solid var(--second-color); */
 	}
 }
