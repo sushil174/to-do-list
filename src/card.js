@@ -1,7 +1,7 @@
 import helper from './helper';
 import editSvg from './img/edit.svg';
 import deleteSvg from './img/delete.svg';
-
+import { format, getDate } from 'date-fns';
 const card = (() => {
 	let currentIndex = null;
 	let projectName = '';
@@ -58,7 +58,11 @@ const card = (() => {
 		del.dataset.project = project.getName();
 		del.dataset.index = index;
 		span1.textContent = task.getTitle();
-		span2.textContent = task.getDate();
+		if(task.getDate()) {
+			span2.textContent = format(task.getDate(),'dd/MM/yyyy')
+		}else {
+			span2.textContent = task.getDate();
+		}
 
 		taskCard.dataset.visible = visible
 		// setPriority(task, taskCard);
@@ -76,7 +80,7 @@ const card = (() => {
 			else {
 				span1.style.textDecoration = 'none'
 			}
-			// display();
+			display();
 		});
 
 		title.addEventListener('click', () => {
@@ -89,7 +93,7 @@ const card = (() => {
 				span1.style.textDecoration = 'none';
 				check.checked = false
 			}
-			// display();
+			display();
 		});
 
 		edit.addEventListener('click', (e) => {

@@ -9,6 +9,7 @@
 }
 button, .side-button div, .project, .taskCard{
 	cursor: pointer;
+	border-radius: 5px;
 }
 
 
@@ -127,8 +128,7 @@ input {
 #project-dialog {
 	display: flex;
 	flex-direction: column;
-	margin-left: 0.5em;
-	border-radius: 5px;
+	/* margin-left: 0.5em; */
 }
 
 #project-dialog input {
@@ -139,6 +139,8 @@ input {
 	margin-bottom: 0.5em;
 	background-color: var(--first-color);
 	border: 2px solid var(--second-color);
+	border-radius: 5px;
+
 }
 
 #project-dialog div {
@@ -218,6 +220,7 @@ input {
 }
 .tasks {
 	padding-inline: 20% 20%;
+	font-size: 1.23rem;
 }
 .tasks #tasklist {
 	margin-top: 1.5em;
@@ -238,7 +241,9 @@ input {
 	display: flex;
 	background-color: var(--second-color);
 }
-
+.taskContainer .title span:nth-child(2) {
+	font-size: 1.15rem;
+}
 .taskCard .check {
 	height: 1.3em;
 	width: 1.3em;
@@ -275,6 +280,7 @@ input {
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 }
 
 .task-buttons {
@@ -472,11 +478,14 @@ form li label {
 		flex-grow: 1;
 		flex-basis: 6em;
 	}
+	.taskContainer .title span:nth-child(2) {
+		font-size: .9rem;
+	}
 	.side-button, .project #content > div {
 		display: flex;
 		flex-wrap: wrap;
-		overflow-x: auto;
 		justify-content: stretch;
+		gap: 10px;
 	}
 
 	.side-button > * {
