@@ -83,6 +83,7 @@ input {
 	/* gap: 2em; */
 	box-shadow: 0px 0px .5px 1px rgb(88, 87, 87);
 
+
 }
 
 .sidebar img {
@@ -103,6 +104,7 @@ input {
 	transition: box-shadow 0.3s;
 	border-radius: 5px;
 	background-color: var(--side-bar);
+	border: .5px solid rgb(88, 87, 87);
 }
 .side-button div:hover {
 	background-color: var(--hover-color);
@@ -114,11 +116,9 @@ input {
 	font-size: 1.5em;
 	text-align: center;
 	padding-block: 0.15em;
-	/* margin: 0 0.4em; */
 	color: var(--second-color);
 	background-color: var(--side-bar);
-	/* border: 1px solid var(--second-color); */
-	border: none;
+	border: .5px solid rgb(88, 87, 87);
 	border-radius: 5px;
 	transition: background-color .3s;
 }
@@ -209,7 +209,7 @@ input {
 	transition: 1s;
 	color: var(--second-color);
 	background-color: var(--side-bar);
-	/* border: 1px solid var(--second-color); */
+	border: .5px solid rgb(88, 87, 87);
 	transition: 0.2s;
 	border-radius: 5px;
 }
@@ -348,7 +348,10 @@ input {
 dialog {
 	background-color: var(--first-color);
 	border-radius: 5px;
+	width: min(100%, 500px);
+	border: 1px solid black;
 }
+
 form ul li {
 	display: grid;
 	gap: 0.2em;
@@ -373,29 +376,19 @@ form {
 	color: white;
 	font-weight: 400;
 }
-dialog {
-	border: none;
-	width: min(100%, 500px);
-	/* box-shadow: 10px 10px 0px var(--second-color); */
-}
+
 
 dialog::backdrop {
 	background-color: black;
-	opacity: 0.3;
+	opacity: 0.4;
 }
-/* form div {
-    align-self: flex-end;
-} */
+
 
 form div {
 	align-self: flex-end;
 }
 form div button {
-	/* margin: 10px;
-    padding: 10px; */
-	/* font-size: 1em; */
 	border: none;
-	/* border-radius: 15px; */
 	padding: 0.5em 1em;
 	background-color: var(--second-color);
 	font-size: 1em;
