@@ -5,7 +5,7 @@ let Due = () => {
 	const addTask = document.querySelector('.task-add');
 	addTask.style.display = 'none';
 	const taskList = document.querySelector('#tasklist');
-
+	let tasks = [];
 	function todayDisplay() {
 		const projects = helper.getProjects();
 		taskList.textContent = '';
@@ -13,15 +13,27 @@ let Due = () => {
 		title.textContent = 'Past Due';
 		taskList.append(title);
 
-		projects.forEach(project => {
-			const tasks = helper.getTasks(project.getName());
+		for (let i = 0; i < projects.length; i++) {
+			let project = projects[i];
 
-			tasks
-				.filter(task => isPast(task.getDate()) && !task.getComplete() && !isToday(task.getDate()))
-				.forEach((task,index) => {
-					card.create(project,task,index,todayDisplay)
-				})
-		})
+			tasks = helper.getTasks(project.getName());
+			for (let j = 0; j < tasks.length; j++) {
+				let task = tasks[j];
+				if (isPast(task.getDate()) && !task.getComplete() && !isToday(task.getDate())) {
+					card.create(project, task, j, todayDisplay);
+				}
+			}
+		}
+
+		// projects.forEach(project => {
+		// 	const tasks = helper.getTasks(project.getName());
+
+		// 	tasks
+		// 		.filter(task => isPast(task.getDate()) && !task.getComplete() && !isToday(task.getDate()))
+		// 		.forEach((task,index) => {
+		// 			card.create(project,task,index,todayDisplay)
+		// 		})
+		// })
 	}
 
 	card.buttonListners(todayDisplay);

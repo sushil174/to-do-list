@@ -1,6 +1,6 @@
 import helper from './helper';
 export default class Task {
-	constructor(name, date, priority, discription, complete) {
+	constructor(name, date, priority, discription, complete=false) {
 		this.name = name;
 		this.date = date;
 		this.priority = priority;
@@ -20,6 +20,7 @@ export default class Task {
 		this.complete = !this.complete;
 		helper.updateLocalStorage();
 	}
+	
 	getTitle() {
 		return this.name;
 	}

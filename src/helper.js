@@ -9,8 +9,7 @@ let helper = (() => {
 	}
 
 	function retrive() {
-		// const data = localStorage.getItem('todo')
-		// if(data === null) {return new Todo()}
+
 		const todoList = Object.assign(
 			new Todo(),
 			JSON.parse(localStorage.getItem('todo'))
@@ -30,24 +29,7 @@ let helper = (() => {
 		return todoList;
 	}
 
-	// function retrive() {
-	//     const revivedTodo = new Todo();
-	//     const data = localStorage.getItem('todo');
-	//     if(data) {
-	//         const todoData = JSON.parse(data)
-	//         for(const projectData of todoData.projects) {
-	//             Object.assign()
-	//             const revivedProject = new Project(projectData.name)
-	//             for(const taskData of projectData.list) {
-	//                 const revivedtask = new Task(taskData.name,taskData.date,taskData.priority,taskData.complete)
-	//                 revivedProject.addTask(revivedtask)
-	//             }
-	//             revivedTodo.addProject(revivedProject)
-	//         }
-	//     }
 
-	//     return revivedTodo;
-	// }
 
 	function addProject(name) {
 		const todoList = retrive();
@@ -102,8 +84,8 @@ let helper = (() => {
 		const task = project.getTasks()[index];
 		task.changeComplete();
 		updateLocalStorage(todoList);
-		return task.getComplete()
 	}
+	
 	return {
 		updateLocalStorage,
 		retrive,

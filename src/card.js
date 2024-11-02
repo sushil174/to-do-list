@@ -31,26 +31,27 @@ const card = (() => {
 		list = helper.getTasks(project.getName());
 		const taskCard = document.createElement('div');
 		const taskContainer = document.createElement('div');
+		const textDiv = document.createElement('div');
+		const check = document.createElement('INPUT');
+		const title = document.createElement('div');
+		const span1 = document.createElement('span');
+		const span2 = document.createElement('span');
+		const buttonDiv = document.createElement('div');
+		const del = document.createElement('img');
+		const edit = document.createElement('img');
+
 		taskCard.classList.add('taskCard');
 		taskContainer.classList.add('taskContainer');
-		const textDiv = document.createElement('div');
 		textDiv.classList.add('task-text');
-		const check = document.createElement('INPUT');
 		check.setAttribute('type', 'checkbox');
 		check.classList.add('check');
 		check.dataset.index = index;
 		check.checked = task.getComplete();
-		const title = document.createElement('div');
 		title.classList.add('title');
-		const span1 = document.createElement('span');
 		span1.dataset.index = index;
-		const span2 = document.createElement('span');
-		const buttonDiv = document.createElement('div');
 		buttonDiv.classList.add('task-buttons');
-		const del = document.createElement('img');
 		del.src = deleteSvg;
 		del.alt = 'Delete';
-		const edit = document.createElement('img');
 		edit.src = editSvg;
 		edit.alt = 'Edit';
 		edit.dataset.index = index;
@@ -73,26 +74,30 @@ const card = (() => {
 		}
 
 		check.addEventListener('click', () => {
-			const change = helper.changeComplete(project.getName(), index);
-			if (change) {
-				span1.style.textDecoration = 'line-through'
-			}
-			else {
-				span1.style.textDecoration = 'none'
-			}
+			console.log(index,task.getComplete(),task.getTitle())
+			helper.changeComplete(project.getName(), index);
+			// if (change) {
+			// 	span1.style.textDecoration = 'line-through'
+			// }
+			// else {
+			// 	span1.style.textDecoration = 'none'
+			// }
+			console.log(index, task.getComplete(),task.getTitle())
 			display();
+			console.log(index, task.getComplete(),task.getTitle())
+
 		});
 
 		title.addEventListener('click', () => {
-			const change = helper.changeComplete(project.getName(), index);
-			if (change) {
-				span1.style.textDecoration = 'line-through';
-				check.checked = true
-			}
-			else {
-				span1.style.textDecoration = 'none';
-				check.checked = false
-			}
+			helper.changeComplete(project.getName(), index);
+			// if (change) {
+			// 	span1.style.textDecoration = 'line-through';
+			// 	check.checked = true
+			// }
+			// else {
+			// 	span1.style.textDecoration = 'none';
+			// 	check.checked = false
+			// }
 			display();
 		});
 
@@ -117,8 +122,6 @@ const card = (() => {
 		textDiv.append(title);
 		buttonDiv.append(edit);
 		buttonDiv.append(del);
-		// taskCard.append(textDiv);
-		// taskCard.append(buttonDiv);
 		taskContainer.append(textDiv);
 		taskContainer.append(buttonDiv);
 		taskCard.append(taskContainer);
