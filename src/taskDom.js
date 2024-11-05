@@ -16,7 +16,6 @@ let taskDom = (project) => {
 	let list = [];
 	function display() {
 		let title = document.createElement('h2');
-		title.textContent = project.getName();
 		tasklist.textContent = '';
 		tasklist.append(title);
 		list = helper.getTasks(project.getName());
@@ -24,6 +23,7 @@ let taskDom = (project) => {
 			let task = list[i];
 			card.create(project, task, i, display);
 		}
+		title.textContent = `${project.getName()} (${list.length})`
 	}
 
 	display();

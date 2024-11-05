@@ -12,7 +12,7 @@ let Due = () => {
 		let title = document.createElement('h2');
 		title.textContent = 'Past Due';
 		taskList.append(title);
-
+		let count = 0
 		for (let i = 0; i < projects.length; i++) {
 			let project = projects[i];
 
@@ -21,10 +21,11 @@ let Due = () => {
 				let task = tasks[j];
 				if (isPast(task.getDate()) && !task.getComplete() && !isToday(task.getDate())) {
 					card.create(project, task, j, todayDisplay);
+					count += 1
 				}
 			}
 		}
-
+		title.textContent = `Past Due (${count})`;
 		// projects.forEach(project => {
 		// 	const tasks = helper.getTasks(project.getName());
 

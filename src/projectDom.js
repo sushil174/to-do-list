@@ -13,6 +13,7 @@ let projectDom = function () {
 	const projectInput = document.querySelector('#project-title');
 	const cancelBtn = document.querySelector('#cancel');
 	const confirmBtn = document.querySelector('#confirm');
+	const projectCount = document.querySelector('.project-count')
 	projectInput.value = '';
 	function dialogVisible() {
 		dialog.style.display = 'block';
@@ -48,10 +49,10 @@ let projectDom = function () {
 				homeDom();
 				display();
 			});
-
 			title.textContent = project.getName();
 			projectDisplay.append(div);
 		}
+		projectCount.textContent =` (${projects.length})`
 	};
 
 	button.addEventListener('click', () => {

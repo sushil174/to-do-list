@@ -87,7 +87,7 @@ input {
 }
 
 .sidebar img {
-	height: 1.5em;
+	height: 1.2em;
 }
 .side-button {
 	display: grid;
@@ -221,6 +221,9 @@ input {
 	padding-inline: 20% 20%;
 	font-size: 1.23rem;
 }
+.taskContainer .title span:nth-child(2) {
+	font-size: 1rem;
+}
 .tasks #tasklist {
 	margin-top: 1.5em;
 	display: flex;
@@ -229,6 +232,8 @@ input {
 }
 .tasks #tasklist h2 {
 	text-align: center;
+	border-bottom: 1px solid grey;
+	padding-bottom: 1em;
 	color: white;
 }
 
@@ -284,9 +289,14 @@ input {
 
 .task-buttons {
 	display: flex;
-	gap: 1em;
+	gap: 10px;
+	/* width: 1em;
+	height: auto;
+	padding-right: 1em; */
 }
-
+.task-buttons img {
+	width: 1.2em;
+}
 #tasklist .taskCard:first-of-type .taskContainer{
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
@@ -464,7 +474,9 @@ form li label {
 		left: 50%;
 		top: 100%;
 	}
-
+	.tasks {
+		font-size: 1rem;
+	}
 	.project-card {
 		padding: .5em;
 		flex-grow: 1;

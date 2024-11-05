@@ -10,9 +10,8 @@ let Week = () => {
 		const projects = helper.getProjects();
 		taskList.textContent = '';
 		let title = document.createElement('h2');
-		title.textContent = 'Up Coming';
 		taskList.append(title);
-
+		let count = 0
 		for (let i = 0; i < projects.length; i++) {
 			let project = projects[i];
 
@@ -21,9 +20,11 @@ let Week = () => {
 				let task = tasks[j];
 				if (isFuture(task.getDate())) {
 					card.create(project, task, j, todayDisplay);
+					count += 1
 				}
 			}
 		}
+		title.textContent = `Up Coming (${count})`;
 		// projects.forEach(project => {
 		// 	const tasks = helper.getTasks(project.getName());
 		// 	tasks

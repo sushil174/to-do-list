@@ -22,9 +22,8 @@ let today = () => {
 		taskList.textContent = '';
 		const projects = helper.getProjects();
 		let title = document.createElement('h2');
-		title.textContent = 'Today';
 		taskList.append(title);
-
+		let count = 0;
 		for (let i = 0; i < projects.length; i++) {
 			let project = projects[i];
 			tasks = helper.getTasks(project.getName());
@@ -32,9 +31,11 @@ let today = () => {
 				let task = tasks[j];
 				if (task.getDate()===getTodayDate()) {
 					card.create(project, task, j, todayDisplay);
+					count += 1
 				}
 			}
 		}
+		title.textContent = `Today (${count})`;
 		// projects.forEach(project => {
 		// 	const tasks = helper.getTasks(project.getName());
 
