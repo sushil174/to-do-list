@@ -24,6 +24,12 @@ let taskDom = (project) => {
 			card.create(project, task, i, display);
 		}
 		title.textContent = `${project.getName()} (${list.length})`
+		if(list.length === 0) {
+			const nothingToSee = document.createElement('div') ;
+			nothingToSee.textContent = "(－_－) zzZ";
+			nothingToSee.classList.add('empty');
+			tasklist.append(nothingToSee)
+		}
 	}
 
 	display();

@@ -24,6 +24,12 @@ let homeDom = () => {
 			}
 		}
 		title.textContent = `Home (${count})`;
+		if(count === 0) {
+			const nothingToSee = document.createElement('div') ;
+			nothingToSee.textContent = "(－_－) zzZ";
+			nothingToSee.classList.add('empty');
+			taskList.append(nothingToSee)
+		}
 	}
 
 	card.buttonListners(homeDisplay);

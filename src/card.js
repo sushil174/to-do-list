@@ -24,7 +24,7 @@ const card = (() => {
 		}
 
 		if (priority === 'Low') {
-			taskCard.style.boxShadow = 'inset 0.4em 0 #1E2761';
+			taskCard.style.boxShadow = 'inset 0.4em 0 #404c9a';
 		}
 	}
 	function create(project, task, index, display) {

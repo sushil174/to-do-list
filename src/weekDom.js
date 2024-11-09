@@ -25,6 +25,12 @@ let Week = () => {
 			}
 		}
 		title.textContent = `Up Coming (${count})`;
+		if(count === 0) {
+			const nothingToSee = document.createElement('div') ;
+			nothingToSee.textContent = "(－_－) zzZ"
+			nothingToSee.classList.add('empty')
+			taskList.append(nothingToSee)
+		}
 		// projects.forEach(project => {
 		// 	const tasks = helper.getTasks(project.getName());
 		// 	tasks

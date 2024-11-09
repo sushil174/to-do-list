@@ -20,15 +20,17 @@ button, .side-button div, .project, .taskCard{
 	--side-bar:#334155;
 	--second-color: #e2e8f0;
 } */
-/* 
-:root {
+
+/* :root {
 	--font-size: 1.2em;
 	--background-color: white;
 	--first-color:#404258;
 	--side-bar:#474E68;
 	--second-color: #D8D8D8;
+	--hover-color:var(--first-color)
 } */
 
+/* 
 :root {
 	--font-size: 1.2em;
 	--background-color: #9F4E85;
@@ -36,6 +38,18 @@ button, .side-button div, .project, .taskCard{
 	--side-bar:#424242;
 	--second-color: #D0D0D0;
 	--hover-color:#292828;
+	--border-color:rgb(88, 87, 87);
+} */
+
+
+:root {
+	--font-size: 1.2em;
+	--background-color: #404c9a;
+	--first-color: #313131;
+	--side-bar:#414141;
+	--second-color: #D0D0D0;
+	--hover-color:#252525;
+	--border-color:#525252;
 }
 
 body {
@@ -44,7 +58,12 @@ body {
 	font-size: 1.2em;
 	font-family: 'myFont';
 }
-
+.empty {
+	content: "(－_－) zzZ";
+	color: white;
+	text-align: center;
+	font-size: 1.2em;
+}
 .container {
 	display: flex;
 	flex-direction: column;
@@ -81,7 +100,7 @@ input {
 	display: flex;
 	flex-direction: column;
 	/* gap: 2em; */
-	box-shadow: 0px 0px .5px 1px rgb(88, 87, 87);
+	box-shadow: 0px 0px .5px 1px var(--border-color);
 
 
 }
@@ -104,7 +123,7 @@ input {
 	transition: box-shadow 0.3s;
 	border-radius: 5px;
 	background-color: var(--side-bar);
-	border: .5px solid rgb(88, 87, 87);
+	border: .5px solid var(--border-color);
 }
 .side-button div:hover {
 	background-color: var(--hover-color);
@@ -209,7 +228,7 @@ input {
 	transition: 1s;
 	color: var(--second-color);
 	background-color: var(--side-bar);
-	border: .5px solid rgb(88, 87, 87);
+	border: .5px solid var(--border-color);
 	transition: 0.2s;
 	border-radius: 5px;
 }
@@ -232,7 +251,7 @@ input {
 }
 .tasks #tasklist h2 {
 	text-align: center;
-	border-bottom: 1px solid grey;
+	border-bottom: 1px solid var(--border-color);
 	padding-bottom: 1em;
 	color: white;
 }
