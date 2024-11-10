@@ -12,7 +12,10 @@ let homeDom = () => {
 		taskList.textContent = '';
 		let title = document.createElement('h2');
 		title.textContent = 'Home';
+		const taskCount = document.createElement('h4');
+		taskCount.classList.add('count')
 		taskList.append(title);
+		taskList.append(taskCount)
 		let count = 0;
 		for (let i = 0; i < projects.length; i++) {
 			let project = projects[i];
@@ -23,7 +26,7 @@ let homeDom = () => {
 				count += 1
 			}
 		}
-		title.textContent = `Home (${count})`;
+		taskCount.textContent = `Tasks (${count})`
 		if(count === 0) {
 			const nothingToSee = document.createElement('div') ;
 			nothingToSee.textContent = "(－_－) zzZ";

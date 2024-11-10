@@ -23,6 +23,9 @@ let today = () => {
 		const projects = helper.getProjects();
 		let title = document.createElement('h2');
 		taskList.append(title);
+		const taskCount = document.createElement('h4');
+		taskCount.classList.add('count')
+		taskList.append(taskCount)
 		let count = 0;
 		for (let i = 0; i < projects.length; i++) {
 			let project = projects[i];
@@ -35,7 +38,8 @@ let today = () => {
 				}
 			}
 		}
-		title.textContent = `Today (${count})`;
+		title.textContent = `Today`;
+		taskCount.textContent = `Tasks (${count})`
 		if(count === 0) {
 			const nothingToSee = document.createElement('div') ;
 			nothingToSee.textContent = "(－_－) zzZ";

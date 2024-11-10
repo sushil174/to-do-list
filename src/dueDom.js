@@ -12,6 +12,9 @@ let Due = () => {
 		let title = document.createElement('h2');
 		title.textContent = 'Past Due';
 		taskList.append(title);
+		const taskCount = document.createElement('h4');
+		taskCount.classList.add('count')
+		taskList.append(taskCount)
 		let count = 0
 		for (let i = 0; i < projects.length; i++) {
 			let project = projects[i];
@@ -25,7 +28,7 @@ let Due = () => {
 				}
 			}
 		}
-		title.textContent = `Past Due (${count})`;
+		taskCount.textContent = `Tasks (${count})`
 		if(count === 0) {
 			const nothingToSee = document.createElement('div') ;
 			nothingToSee.textContent = "(－_－) zzZ";

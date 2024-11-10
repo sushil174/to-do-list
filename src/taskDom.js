@@ -16,14 +16,18 @@ let taskDom = (project) => {
 	let list = [];
 	function display() {
 		let title = document.createElement('h2');
+		const taskCount = document.createElement('h4')
 		tasklist.textContent = '';
 		tasklist.append(title);
+		tasklist.append(taskCount);
+		taskCount.classList.add('count')
 		list = helper.getTasks(project.getName());
 		for (let i = 0; i < list.length; i++) {
 			let task = list[i];
 			card.create(project, task, i, display);
 		}
-		title.textContent = `${project.getName()} (${list.length})`
+		title.textContent = `${project.getName()}`
+		taskCount.textContent = `Tasks (${list.length})`
 		if(list.length === 0) {
 			const nothingToSee = document.createElement('div') ;
 			nothingToSee.textContent = "(－_－) zzZ";
